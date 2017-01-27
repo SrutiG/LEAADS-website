@@ -3,4 +3,5 @@
     --colorPrimaryDark: #222;
     --colorAccent: #FFF;
     --text: #000;
+    --header: var(--colorAccent);
 }
