@@ -1,6 +1,6 @@
 :root {
     --colorPrimary: #888;
-    --PrimaryHover: #AAA;
+    --PrimaryHover: #EEE;
     --colorPrimaryDark: #222;
     --colorAccent: #DDD;
     --text: #000;
@@ -57,6 +57,10 @@ body {
   color: var(--text) ! important;
   font-size: 130%;
   margin: 0px;
+}
+
+.navbar-nav .active a {
+    background-color: var(--PrimaryHover) ! important;
 }
 
 .welcome-user {
