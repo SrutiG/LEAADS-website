@@ -40,17 +40,28 @@ body {
     background-color: var(--colorPrimary);
 }
 
+.navbar-right {
+    display: block;
+}
+
 .navbar-brand,
 .navbar-nav li a {
   height: 76px;
   line-height: 76px;
   padding-top: 0;
   color: var(--text) ! important;
-  font-size: 130%
+  font-size: 130%;
+  margin-top: 0px ! important;
+  padding-top: 0px ! important;
 }
 
 .navbar-nav li a:hover {
   background-color: var(--PrimaryHover) ! important;
+}
+
+.nav-wrapper {
+    margin-top: 0px ! important;
+    padding: 0px ! important;
 }
 
 .img {
