@@ -38,6 +38,7 @@ body {
 
 .navbar .nav {
     height: 10vh;
+    min-height: 76px;
 }
 
 .nav {
@@ -55,6 +56,11 @@ body {
   padding-top: 0;
   color: var(--text) ! important;
   font-size: 130%;
+  margin: 0px;
+}
+
+.welcome-user {
+    font-size: 150%;
 }
 
 .navbar-nav li a:hover {
@@ -80,4 +86,9 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
 
+}
+
+.affix {
+  top: 0px;
+  width: 100%;
 }

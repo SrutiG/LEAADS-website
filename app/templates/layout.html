@@ -42,7 +42,7 @@
 </header>
 {% block prenav %}
 {% endblock %}
-<nav class="nav navigation navbar-default">
+<nav id="nav" class="nav navigation navbar-default affix-top" data-spy="affix">
     <div class="container">
         <div class="row nav-wrapper" style="padding: 0px ! important;">
             <div class="col-xs-6" style="height: 100%;">
@@ -54,7 +54,12 @@
             </div>
             <div class="col-xs-6">
                 <ul class="nav navbar-nav navbar-right">
+                    {% if login %}
+                    <li class="nav-item"><h3 class="navbar-brand welcome-user">Welcome, <b>{{ user }}!</b></h3></li>
                     <li class="nav-item"><a href="#">My Account</a></li>
+                    {% else %}
+                    <li class="nav-item"><a href="#">Login</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

@@ -7,4 +7,6 @@ def index():
 
 @app.route('/home')
 def home():
-    return render_template('home.html')
+    login = True
+    user = "Firstname Lastname"
+    return render_template('home.html', login=login, user=user)
