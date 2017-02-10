@@ -6,6 +6,7 @@
     --text: #000;
     --header: var(--colorPrimaryDark);
     --background: var(--colorAccent);
+    --nav: var(--colorAccent);
 }
 
 body {
@@ -37,7 +38,7 @@ body {
 }
 
 .nav {
-    background-color: var(--colorPrimary);
+    background-color: var(--nav);
 }
 
 .navbar-right {
