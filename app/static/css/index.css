@@ -1,7 +1,64 @@
 :root {
-    --colorPrimary: #999;
+    --colorPrimary: #888;
     --colorPrimaryDark: #222;
-    --colorAccent: #FFF;
+    --colorAccent: #DDD;
     --text: #000;
-    --header: var(--colorAccent);
+    --header: var(--colorPrimaryDark);
+    --background: var(--colorAccent);
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--background);
+}
+
+.top-header {
+    background-color: var(--header);
+    height: 5vh;
+    width: 100vw;
+    color: var(--colorAccent);
+}
+
+#main-title {
+    display: inline-block;
+    margin-top: 0.25%;
+    vertical-align: middle;
+}
+
+.header-content > #sub-title {
+    display: inline-block;
+    float: right;
+    margin-top: 0.5%;
+}
+
+.navbar .nav {
+    height: 10vh;
+}
+
+.nav {
+    background-color: var(--colorPrimary);
+}
+
+.navbar-brand,
+.navbar-nav li a {
+  height: 76px;
+  line-height: 76px;
+  padding-top: 0;
+  color: var(--text);
+  font-size: 130%
+}
+
+.img {
+    height: 82.5vh;
+    position: relative;
+}
+
+.img > #children-pic {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
 }

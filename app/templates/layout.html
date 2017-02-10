@@ -9,6 +9,7 @@
 
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/index.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     {% block extrastyle %} {% endblock %}
 
@@ -31,6 +32,28 @@
 {% endif %}
 {% endwith %}
 <body {% block class %} {%endblock %}>
+<header class="top-header">
+    <div class="container nav-content">
+        <div class="header-content">
+            <h3 id="main-title">L.E.A.A.D.S</h3>
+            <h4 id="sub-title">Law Enforcement Agencies Assisting in the Development of Students</h4>
+        </div>
+    </div>
+</header>
+{% block prenav %}
+{% endblock %}
+<nav class="nav navigation">
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <li class="nav-item"><a href="#">Home</a></li>
+            <li class="nav-item"><a href="#">About Us</a></li>
+            <li class="nav-item"><a href="#">Opportunities</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item"><a href="#">My Account</a></li>
+        </ul>
+    </div>
+</nav>
 {% block content %}
 {% endblock %}
 </body>
