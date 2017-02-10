@@ -1,5 +1,6 @@
 :root {
     --colorPrimary: #888;
+    --PrimaryHover: #AAA;
     --colorPrimaryDark: #222;
     --colorAccent: #DDD;
     --text: #000;
@@ -44,13 +45,18 @@ body {
   height: 76px;
   line-height: 76px;
   padding-top: 0;
-  color: var(--text);
+  color: var(--text) ! important;
   font-size: 130%
+}
+
+.navbar-nav li a:hover {
+  background-color: var(--PrimaryHover) ! important;
 }
 
 .img {
     height: 82.5vh;
     position: relative;
+    background-color: var(--colorPrimaryDark);
 }
 
 .img > #children-pic {
