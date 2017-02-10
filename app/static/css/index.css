@@ -17,8 +17,11 @@ body {
 .top-header {
     background-color: var(--header);
     height: 5vh;
+    min-height: 30px;
     width: 100vw;
     color: var(--colorAccent);
+    position: static;
+    font-size: 100%;
 }
 
 #main-title {
@@ -52,8 +55,6 @@ body {
   padding-top: 0;
   color: var(--text) ! important;
   font-size: 130%;
-  margin-top: 0px ! important;
-  padding-top: 0px ! important;
 }
 
 .navbar-nav li a:hover {
