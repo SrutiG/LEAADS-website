@@ -38,7 +38,7 @@ body {
 
 .navbar .nav {
     height: 10vh;
-    min-height: 76px;
+    min-height: 76px ! important;
 }
 
 .nav {
