@@ -5,6 +5,8 @@ $(document).ready(function() {
             top: $('#nav').offset().top
         }
     });
+
+    //change the navbar active link to home when on home page
     if (window.location.pathname == '/home') {
         $home_link.addClass('active');
     } else {
