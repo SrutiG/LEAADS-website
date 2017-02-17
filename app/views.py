@@ -18,7 +18,17 @@ def profileform():
 def opportunitydetail():
     return render_template('opportunitydetail.html')
 
-
 @app.route('/home')
 def home():
-     return render_template('home.html')
+    login = True
+    user = "Firstname Lastname"
+    return render_template('home.html', login=login, user=user)
+
+@app.route('/about_us')
+def about_us():
+    return render_template('about_us.html')
+
+@app.route('/opportunities_list')
+def opportunities_list():
+    return render_template('opportunities_list.html')
+
