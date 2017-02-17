@@ -96,3 +96,91 @@ body {
   top: 0px;
   width: 100%;
 }
+
+
+
+/* code made for about-us and opportunities pages */
+
+.header-background {
+  position: absolute;
+  background-color: rgba(152, 157, 183, .4);
+  top: 35%;
+  left: 35%;
+  height: 17.5%;
+  width: 30%;
+  text-align: center;
+  z-index: 0;
+}
+
+.title {
+  font-size: 4.5vw;
+  color: black;  
+}
+
+.one-third-margins {
+    margin-left: 16.66%;
+    margin-right: 16.66%;
+}
+
+.major-section {
+    margin: 8% 0 10% 0;
+}
+
+.team-member-section {
+    position: relative;
+    border-style: groove;
+    border-bottom: hidden;
+    border-width: 3px;
+    border-color: rgb(150, 150, 150);
+}
+.team-member-paragraph-right {
+    position: absolute;
+}
+
+.footer-placeholder {
+    border-top: solid;
+    height: 10%;
+    background-color: rgb(150, 150, 150);
+    text-align: center;
+}
+
+/*code made for opportunities list */
+.opportunities-header-background {
+  position: absolute;
+  background-color: rgba(152, 157, 183, .4);
+  top: 25%;
+  left: 15%;
+  height: 20%;
+  width: 70%;
+  text-align: center;
+  z-index: 0;   
+}
+
+.opportunities-body {
+    margin-top: 3%;
+}
+
+.search-bar {
+    height: 600px;
+    padding-right: 0px;
+    padding-top: 0px;
+    border-right: solid;
+    border-color: rgb(152, 157, 183);
+}
+.search-header {
+    border-bottom: solid;
+    border-color: rgb(152, 157, 183);
+}
+.search-header-text {
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+.opportunity-section {
+    padding-bottom: 2%;
+    border-bottom: 1px solid rgb(152, 157, 183);
+    height: 20%;
+}
+.opportunity-thumbnail {
+    margin-top: 15%;
+}
