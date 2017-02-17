@@ -6,7 +6,7 @@
     <title>LEAADS</title>
     <meta name = 'description' content = "Website for LEAADS">
     <meta name = 'author' content = "Epic Intentions">
-
+    
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/index.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -55,8 +55,8 @@
             <div class="col-xs-6" style="height: 100%;">
                 <ul class="nav navbar-nav navbar-left">
                     <li id="home-link" class="nav-item"><a href="{{ url_for('home') }}">Home</a></li>
-                    <li id="about-link" class="nav-item"><a href="#">About Us</a></li>
-                    <li id="opp-link" class="nav-item"><a href="#">Opportunities</a></li>
+                    <li id="about-link" class="nav-item"><a href="{{ url_for('about_us') }}">About Us</a></li>
+                    <li id="opp-link" class="nav-item"><a href="{{ url_for('opportunities_list') }}">Opportunities</a></li>
                 </ul>
             </div>
             <div class="col-xs-6">
