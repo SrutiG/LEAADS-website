@@ -43,6 +43,7 @@ body {
 
 .nav {
     background-color: var(--nav);
+    z-index: 1;
 }
 
 .navbar-right {
