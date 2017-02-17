@@ -1,0 +1,98 @@
+:root {
+    --colorPrimary: #888;
+    --PrimaryHover: #EEE;
+    --colorPrimaryDark: #222;
+    --colorAccent: #DDD;
+    --text: #000;
+    --header: var(--colorPrimaryDark);
+    --background: var(--colorAccent);
+    --nav: var(--colorAccent);
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--background);
+}
+
+.top-header {
+    background-color: var(--header);
+    height: 5vh;
+    min-height: 30px;
+    width: 100vw;
+    color: var(--colorAccent);
+    position: static;
+    font-size: 100%;
+}
+
+#main-title {
+    display: inline-block;
+    margin-top: 0.25%;
+    vertical-align: middle;
+}
+
+.header-content > #sub-title {
+    display: inline-block;
+    float: right;
+    margin-top: 0.5%;
+}
+
+.navbar .nav {
+    height: 10vh;
+    min-height: 76px ! important;
+}
+
+.nav {
+    background-color: var(--nav);
+}
+
+.navbar-right {
+    display: block;
+}
+
+.navbar-brand,
+.navbar-nav li a {
+  height: 76px;
+  line-height: 76px;
+  padding-top: 0;
+  color: var(--text) ! important;
+  font-size: 130%;
+  margin: 0px;
+}
+
+.navbar-nav .active a {
+    background-color: var(--PrimaryHover) ! important;
+}
+
+.welcome-user {
+    font-size: 130%;
+}
+
+.navbar-nav li a:hover {
+  background-color: var(--PrimaryHover) ! important;
+}
+
+.nav-wrapper {
+    margin-top: 0px ! important;
+    padding: 0px ! important;
+}
+
+.img {
+    height: 82.5vh;
+    position: relative;
+    background-color: var(--colorPrimaryDark);
+}
+
+.img > #children-pic {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.affix {
+  top: 0px;
+  width: 100%;
+}
