@@ -1,11 +1,13 @@
 :root {
-    --colorPrimary: #888;
-    --PrimaryHover: #EEE;
-    --colorPrimaryDark: #222;
-    --colorAccent: #DDD;
-    --text: #000;
+    --colorPrimary: #a1c5e0;
+    --PrimaryHover: #FFF;
+    --colorPrimaryLight: #FFF;
+    --colorPrimaryDark: #000000;
+    --colorAccent: #EEE;
+    --text: #434343;
+    --textLight: #666666;
     --header: var(--colorPrimaryDark);
-    --background: var(--colorAccent);
+    --background: var(--colorPrimaryLight);
     --nav: var(--colorAccent);
 }
 
@@ -14,6 +16,7 @@ body {
     background-color: var(--background);
 }
 
+/* header and navigation */
 .top-header {
     background-color: var(--header);
     height: 5vh;
@@ -43,6 +46,7 @@ body {
 
 .nav {
     background-color: var(--nav);
+    z-index: 1;
 }
 
 .navbar-right {
@@ -74,22 +78,6 @@ body {
 .nav-wrapper {
     margin-top: 0px ! important;
     padding: 0px ! important;
-}
-
-.img {
-    height: 82.5vh;
-    position: relative;
-    background-color: var(--colorPrimaryDark);
-}
-
-.img > #children-pic {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
 }
 
 .affix {
@@ -186,5 +174,55 @@ body {
 }
 .opportunity-thumbnail {
     margin-top: 15%;
+}
+
+/* carousel code */
+.carousel-items {
+    width: 100vw;
+    height: 80vh;
+    background-color: var(--colorPrimaryDark);
+}
+
+.carousel-item-parent {
+    height: 90%;
+    width: 100%;
+    margin: auto;
+}
+.carousel-item {
+    height: 100%;
+    margin: auto;
+}
+
+.carousel-img {
+    height: auto;
+    margin: auto;
+    position: relative;
+}
+
+.news-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 50%;
+    width: 50%;
+    background-color: rgba(152, 157, 183, .8);
+    z-index: 1;
+    
+}
+
+.news-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--colorPrimaryDark);
+    z-index: 2;
+}
+
+/* home page */
+
+.main {
+    background-color: var(--background);
 }
 
