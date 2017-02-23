@@ -185,7 +185,7 @@ body {
 
 .carousel-item-parent {
     height: 90%;
-    width: 80%;
+    width: 100%;
     margin: auto;
 }
 .carousel-item {
@@ -197,7 +197,6 @@ body {
     height: auto;
     margin: auto;
     position: relative;
-    opacity: 0.4;
 }
 
 .news-item {
@@ -205,8 +204,20 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: var(--colorAccent);
+    height: 50%;
+    width: 50%;
+    background-color: rgba(152, 157, 183, .8);
+    z-index: 1;
     
+}
+
+.news-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--colorPrimaryDark);
+    z-index: 2;
 }
 
 /* home page */
