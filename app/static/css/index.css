@@ -1,11 +1,13 @@
 :root {
-    --colorPrimary: #888;
-    --PrimaryHover: #EEE;
-    --colorPrimaryDark: #222;
-    --colorAccent: #DDD;
-    --text: #000;
+    --colorPrimary: #a1c5e0;
+    --PrimaryHover: #FFF;
+    --colorPrimaryLight: #FFF;
+    --colorPrimaryDark: #000000;
+    --colorAccent: #EEE;
+    --text: #434343;
+    --textLight: #666666;
     --header: var(--colorPrimaryDark);
-    --background: var(--colorAccent);
+    --background: var(--colorPrimaryLight);
     --nav: var(--colorAccent);
 }
 
@@ -14,6 +16,7 @@ body {
     background-color: var(--background);
 }
 
+/* header and navigation */
 .top-header {
     background-color: var(--header);
     height: 5vh;
@@ -75,22 +78,6 @@ body {
 .nav-wrapper {
     margin-top: 0px ! important;
     padding: 0px ! important;
-}
-
-.img {
-    height: 82.5vh;
-    position: relative;
-    background-color: var(--colorPrimaryDark);
-}
-
-.img > #children-pic {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
 }
 
 .affix {
@@ -189,15 +176,16 @@ body {
     margin-top: 15%;
 }
 
+/* carousel code */
 .carousel-items {
     width: 100vw;
-    height: 70vh;
+    height: 80vh;
     background-color: var(--colorPrimaryDark);
 }
 
 .carousel-item-parent {
-    height: 95%;
-    width: 70%;
+    height: 90%;
+    width: 80%;
     margin: auto;
 }
 .carousel-item {
@@ -219,5 +207,11 @@ body {
     transform: translate(-50%, -50%);
     color: var(--colorAccent);
     
+}
+
+/* home page */
+
+.main {
+    background-color: var(--background);
 }
 
