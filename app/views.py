@@ -3,7 +3,8 @@ from flask import render_template, request, url_for, redirect, flash, session
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    session['login'] = True
+    return redirect('home')
 
 @app.route('/profile')
 def profile():
@@ -20,8 +21,8 @@ def opportunitydetail():
 
 @app.route('/home')
 def home():
-    login = True
-    user = "Firstname Lastname"
+    login = session.get('login')
+    user = "Example User"
     return render_template('home.html', login=login, user=user)
 
 @app.route('/about_us')
