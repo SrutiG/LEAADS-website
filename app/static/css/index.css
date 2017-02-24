@@ -115,6 +115,10 @@ body {
     margin-right: 16.66%;
 }
 
+.one-sixth-margins {
+    margin-left: 8.333%;
+    margin-right: 8.333%;
+}
 .team-member-section {
     position: relative;
     padding-top: 5px;
