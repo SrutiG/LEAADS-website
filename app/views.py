@@ -33,3 +33,8 @@ def about_us():
 def opportunities_list():
     return render_template('opportunities_list.html')
 
+@app.route('/blog')
+def blog():
+    return render_template('blog.html')
+
+
