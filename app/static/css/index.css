@@ -1,5 +1,6 @@
 :root {
     --colorPrimary: #a1c5e0;
+    --primaryBorderColor: #a1c5e0;
     --PrimaryHover: #FFF;
     --colorPrimaryLight: #FFF;
     --colorPrimaryDark: #000000;
@@ -58,7 +59,7 @@ body {
   height: 76px;
   line-height: 76px;
   padding-top: 0;
-  color: var(--text) ! important;
+  color: var(--primaryAccent) ! important;
   font-size: 130%;
   margin: 0px;
 }
@@ -72,7 +73,7 @@ body {
 }
 
 .navbar-nav li a:hover {
-  background-color: var(--PrimaryHover) ! important;
+  background-color: var(--colorPrimary) ! important;
 }
 
 .nav-wrapper {
@@ -94,7 +95,6 @@ body {
 
 .header-background {
   position: absolute;
-  background-color: rgba(152, 157, 183, .4);
   top: 35%;
   left: 35%;
   height: 17.5%;
@@ -105,7 +105,9 @@ body {
 
 .title {
   font-size: 4.5vw;
-  color: black;  
+  color: black;
+  border-bottom: 1px solid var(--colorPrimary);
+  margin: 12% 0 8% 0;
 }
 
 .one-third-margins {
@@ -113,16 +115,11 @@ body {
     margin-right: 16.66%;
 }
 
-.major-section {
-    margin: 8% 0 10% 0;
-}
-
 .team-member-section {
     position: relative;
-    border-style: groove;
-    border-bottom: hidden;
-    border-width: 3px;
-    border-color: rgb(150, 150, 150);
+    padding-top: 5px;
+    border-top: 3px solid var(--primaryBorderColor);
+    margin-bottom: 5px;
 }
 .team-member-paragraph-right {
     position: absolute;
@@ -145,6 +142,11 @@ body {
   width: 70%;
   text-align: center;
   z-index: 0;   
+}
+
+.opportunities-title {
+  font-size: 4.5vw;
+  color: black;
 }
 
 .opportunities-body {

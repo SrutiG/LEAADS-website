@@ -51,7 +51,14 @@
  spy that fixes it once it passes the height of the initial viewport -->
 <nav id="nav" class="nav navigation navbar-default affix-top" data-spy="affix">
     <div class="container">
-        <div class="row nav-wrapper" style="padding: 0px ! important;">
+        <div class="navbar-header">
+            <button id="" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="myNavbar" class="collapse navbar-collapse row nav-wrapper" style="padding: 0px ! important;">
             <div class="col-xs-6" style="height: 100%;">
                 <ul class="nav navbar-nav navbar-left">
                     <li id="home-link" class="nav-item"><a href="{{ url_for('home') }}">Home</a></li>
