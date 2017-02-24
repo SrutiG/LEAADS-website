@@ -20,8 +20,8 @@ body {
 /* header and navigation */
 .top-header {
     background-color: var(--header);
-    height: 5vh;
-    min-height: 30px;
+    height: 8vh;
+    min-height: 40px;
     width: 100vw;
     color: var(--colorAccent);
     position: static;
@@ -30,19 +30,19 @@ body {
 
 #main-title {
     display: inline-block;
-    margin-top: 0.25%;
+    margin-top: 1%;
     vertical-align: middle;
 }
 
 .header-content > #sub-title {
     display: inline-block;
     float: right;
-    margin-top: 0.5%;
+    margin-top: 1.3%;
 }
 
 .navbar .nav {
-    height: 10vh;
-    min-height: 76px ! important;
+    height: 5vh;
+    min-height: 46px ! important;
 }
 
 .nav {
@@ -56,11 +56,10 @@ body {
 
 .navbar-brand,
 .navbar-nav li a {
-  height: 76px;
-  line-height: 76px;
+  height: 46px;
+  line-height: 46px;
   padding-top: 0;
   color: var(--primaryAccent) ! important;
-  font-size: 130%;
   margin: 0px;
 }
 
@@ -69,7 +68,6 @@ body {
 }
 
 .welcome-user {
-    font-size: 130%;
 }
 
 .navbar-nav li a:hover {
