@@ -2,6 +2,7 @@ $(document).ready(function() {
     $home_link = $("#home-link");
     $opp_link = $("#opp-link");
     $about_link = $("#about-link");
+    $blog_link = $("#blog-link")
     $('#nav').affix({
         offset: {
             top: $('#nav').offset().top
@@ -25,6 +26,12 @@ $(document).ready(function() {
         $about_link.addClass('active');
     } else {
         $about_link.removeClass('active');
+    }
+
+    if (window.location.pathname == '/blog') {
+        $blog_link.addClass('active');
+    } else {
+        $blog_link.removeClass('active');
     }
 
 })
