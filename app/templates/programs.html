@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+{%block content %}
+<div class>
+    <img class="img-responsive blog-img" src="{{url_for('static', filename='images/kids-sports.png')}}">
+    <div class="prog-header-background">
+        <h1 class="prog-title text-uppercase text-center"><strong>Programs</strong></h1>
+    </div>
+</div>
+<div class="programs-wrapper">
+    <div class="col-md-10 col-md-offset-1 jumbotron main">
+        <div class="program">
+            <div class="col-md-6 img-wrapper">
+                <img src="{{url_for('static', filename='images/learning.png')}}" class="prog-img">
+            </div>
+            <div class="col-md-6 info-wrapper">
+                <div class="program-info">
+                    <h2>Learning Center</h2>
+                    <h4 class="age-range">Age group: Kids ages 0-18</h4>
+                    <h5>Atlanta, GA</h5>
+                    <p class="prog-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat.</p>
+                    <button type="button" class="btn btn-default program-button">Sign Up</button>
+                </div>
+            </div>
+        </div>
+        <div class="program">
+            <div class="col-md-6 img-wrapper">
+                <img src="{{url_for('static', filename='images/summer-camp.png')}}" class="prog-img">
+            </div>
+            <div class="col-md-6 info-wrapper">
+                <div class="program-info">
+                    <h2>Summer Camp</h2>
+                    <h4 class="age-range">Age group: Kids ages 0-18</h4>
+                    <h5>Atlanta, GA</h5>
+                    <p class="prog-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat.</p>
+                    <button type="button" class="btn btn-default program-button">Sign Up</button>
+                </div>
+            </div>
+        </div>
+        <div class="program">
+            <div class="col-md-6 img-wrapper">
+                <img src="{{url_for('static', filename='images/mentorship.png')}}" class="prog-img">
+            </div>
+            <div class="col-md-6 info-wrapper">
+                <div class="program-info">
+                    <h2>Foundations Youth, Leadership, and Mentoring Program</h2>
+                    <h4>Age group: Kids ages 0-18</h4>
+                    <h5>Atlanta, GA</h5>
+                    <p class="prog-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat.</p>
+                    <button type="button" class="btn btn-default program-button">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

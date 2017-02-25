@@ -3,6 +3,7 @@ $(document).ready(function() {
     $opp_link = $("#opp-link");
     $about_link = $("#about-link");
     $blog_link = $("#blog-link")
+    $prog_link = $("#prog-link")
     $('#nav').affix({
         offset: {
             top: $('#nav').offset().top
@@ -32,6 +33,12 @@ $(document).ready(function() {
         $blog_link.addClass('active');
     } else {
         $blog_link.removeClass('active');
+    }
+
+    if (window.location.pathname == '/programs') {
+        $prog_link.addClass('active');
+    } else {
+        $prog_link.removeClass('active');
     }
 
 })
