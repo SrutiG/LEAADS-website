@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+{% block prenav %}
+
+<!-- Slider of pictures from L.E.A.A.D.S. -->
+<div id="myCarousel" class="carousel slide carousel-items">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner carousel-item-parent" role="listbox">
+        <div class="item active carousel-item">
+            <img class="carousel-img" src="{{url_for('static', filename='images/picture_of_children.png')}}" alt="children_pic">
+            <div class="news-item text-center">
+
+            </div>
+            <div class="news-text text-center">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+
+        <div class="item carousel-item">
+            <img class="carousel-img" src="{{url_for('static', filename='images/children-sports.png')}}" alt="children_sports">
+            <div class="news-item text-center">
+
+            </div>
+            <div class="news-text text-center">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="icon-prev" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="icon-next" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+{% endblock %}
+{%block content %}
+
+<!-- Rachel's Code -->
+
+<body>
+<div class="container-fluid jumbotron main">
+  
+    <div class="col-md-8 center-block one-third-margins">
+    
+<p>L.E.A.A.D.S. is an organization that can nicely be described in one sentence right here.</p>
+<p>Upcoming Opportunities</p>
+<ul style="list-style-type:circle">
+    <li>Opp#1</li>
+    <li>Opp#2</li>
+    <li>Opp#3</li>
+</ul>
+<p>What Do We Offer?</p>
+<ul style="list-style-type:circle">
+    <li>Opp#1 (Each of these are links)</li>
+    <li>Opp#2</li>
+    <li>Opp#3</li>
+    <li>Opp#4</li>
+</ul>
+
+      </div>
+    
+</div>
+</body>
+
+<!-- /Rachel's Code -->
+
+{% endblock %}
