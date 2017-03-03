@@ -85,12 +85,12 @@ body {
 
 }
 
-}
+/* } random curly brace */
 
 /* footer */
 
 .footer-custom {
-	color: red;
+	background-color: var(--colorPrimaryDark);
 
 }
 
