@@ -191,7 +191,7 @@ body {
 .carousel-items {
     width: 100vw;
     height: 80vh;
-    background-color: var(--colorPrimaryDark);
+    background-color: var(--background);
 }
 
 .carousel-item-parent {
