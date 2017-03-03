@@ -86,13 +86,29 @@
 {% endblock %}
 <!-- Footer -->
 <footer class="footer">
-    <div class="container-fluid col-md-12">
-        <p>
-            Contact Us: (555) 555-5555 | email@domain.com | 123 Street City, ST 12345
-        </p>
-        <p>
-            Find us on social media! <i>(This will be right aligned and contain clickable logos below.)</i>
-        </p>
+    <div class="container-fluid col-md-8 col-md-offset-2">
+        <div class="row">
+            <div class="col-sm-8">
+                <p>Contact Us: (555) 555-5555 | email@domain.com | 123 Street City, ST 12345</p>
+            </div>
+            <div class="col-sm-4">
+                <p>Find us on social media!</p>
+                <p>
+                    <img src="{{url_for('static', filename='images/google-plus-logo-button.png')}}">
+                    <img src="{{url_for('static', filename='images/facebook-logo-button.png')}}">
+                    <img src="{{url_for('static', filename='images/linkedin-logo-button.png')}}">
+                    <img src="{{url_for('static', filename='images/instagram-logo.png')}}">
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-10">
+                <img src="{{url_for('static', filename='images/leaads-logo-purposefullywrongname.png')}}">
+            </div>
+            <div class="col-sm-2">
+                <p>Copyright info if necessary.</p>
+            </div>
+        </div>
     </div>
 </footer>
 
