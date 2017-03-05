@@ -89,9 +89,8 @@ body {
 
 /* footer */
 
-.footer-custom {
+.footer-custom2 {
 	background-color: var(--colorPrimaryDark);
-
 }
 
 
@@ -237,6 +236,10 @@ body {
 
 .main {
     background-color: var(--background);
+}
+
+.btn-home {
+	background-color: var(--colorPrimary);
 }
 
 /* blog */

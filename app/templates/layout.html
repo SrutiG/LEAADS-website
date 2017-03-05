@@ -85,29 +85,34 @@
 {% block content %}
 {% endblock %}
 <!-- Footer -->
-<footer class="footer footer-custom">
+ <!--   <div class="container-fluid">
+<p>
+Contact Us: (555) 555-5555 | email@domain.com | 123 Street City, ST 12345
+</p>
+<p>
+Find us on social media! <i>(This will be right aligned and contain clickable logos below.)</i>
+</p>
+</div> -->
+<footer class="footer footer-custom2">
     <div class="container-fluid col-md-8 col-md-offset-2">
         <div class="row">
-            <div class="col-sm-8">
-                <p>Contact Us: (555) 555-5555 | email@domain.com | 123 Street City, ST 12345</p>
-            </div>
-            <div class="col-sm-4">
-                <p>Find us on social media!</p>
-                <p>
-                    <img src="{{url_for('static', filename='images/google-plus-logo-button.png')}}">
-                    <img src="{{url_for('static', filename='images/facebook-logo-button.png')}}">
-                    <img src="{{url_for('static', filename='images/linkedin-logo-button.png')}}">
-                    <img src="{{url_for('static', filename='images/instagram-logo.png')}}">
-                </p>
-            </div>
+            <p class="text-center">Contact Us: (555) 555-5555 | email@domain.com | 123 Street City, ST 12345</p>
         </div>
         <div class="row">
-            <div class="col-sm-10">
-                <img src="{{url_for('static', filename='images/leaads-logo-purposefullywrongname.png')}}">
-            </div>
-            <div class="col-sm-2">
-                <p>Copyright info if necessary.</p>
-            </div>
+            <p class="text-center">Find us on social media!</p>
+            <p class="text-center">
+                <a href="google.com"> <img src="{{url_for('static', filename='images/google-plus-logo-button.png')}}"> </a>
+                <img src="{{url_for('static', filename='images/facebook-logo-button.png')}}"
+                     a href="google.com">
+                <img src="{{url_for('static', filename='images/linkedin-logo-button.png')}}"
+                     a href="google.com">
+                <img src="{{url_for('static', filename='images/instagram-logo.png')}}"
+                     a href="google.com">
+            </p>
+        </div>
+        <div class="row">
+            <img class="img-responsive" src="{{url_for('static', filename='images/leaads-logo.png')}}">
+            <p class="text-center">Copyright info if necessary.</p>
         </div>
     </div>
 </footer>
