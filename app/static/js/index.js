@@ -4,11 +4,16 @@ $(document).ready(function() {
     $about_link = $("#about-link");
     $blog_link = $("#blog-link")
     $prog_link = $("#prog-link")
+    $home_learn_more = $("#home-learn-more");
     $('#nav').affix({
         offset: {
             top: $('#nav').offset().top
         }
     });
+
+    $home_learn_more.click(function() {
+        window.location.href = '/about_us';
+    })
 
     //change the navbar active link to home when on home page
     if (window.location.pathname == '/home') {
@@ -30,9 +35,9 @@ $(document).ready(function() {
     }
 
     if (window.location.pathname == '/blog') {
-        $blog_link.addClass('active');
+        $about_link.addClass('active');
     } else {
-        $blog_link.removeClass('active');
+        $about_link.removeClass('active');
     }
 
     if (window.location.pathname == '/programs') {
