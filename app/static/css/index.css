@@ -1,15 +1,15 @@
 :root {
-    --colorPrimary: #a1c5e0;
-    --primaryBorderColor: #a1c5e0;
-    --PrimaryHover: #FFF;
+    --colorPrimary: #4da4f2;
     --colorPrimaryLight: #FFF;
     --colorPrimaryDark: #000000;
     --colorAccent: #EEE;
+    --PrimaryHover: #EEE;
     --text: #434343;
     --textLight: #666666;
-    --header: var(--colorPrimaryDark);
+    --primaryBorderColor: var(--colorPrimary);
+    --header: var(--colorPrimary);
     --background: var(--colorPrimaryLight);
-    --nav: var(--colorAccent);
+    --nav: var(--colorPrimaryLight);
 }
 
 body {
@@ -23,9 +23,10 @@ body {
     height: 8vh;
     min-height: 40px;
     width: 100vw;
-    color: var(--colorAccent);
+    color: var(--colorPrimaryLight);
     position: static;
     font-size: 100%;
+    font-family: Impact, Helvetica;
 }
 
 #main-title {
@@ -38,6 +39,7 @@ body {
     display: inline-block;
     float: right;
     margin-top: 1.3%;
+    font-family: Helvetica;
 }
 
 .navbar .nav {
@@ -59,19 +61,21 @@ body {
   height: 46px;
   line-height: 46px;
   padding-top: 0;
-  color: var(--primaryAccent) ! important;
   margin: 0px;
+  margin-bottom: 10px;
 }
 
 .navbar-nav .active a {
-    background-color: var(--PrimaryHover) ! important;
+    background-color: var(--colorPrimaryLight) ! important;
+    color: var(--colorPrimary) ! important;
+    border-bottom: 1px solid var(--colorPrimary);
 }
 
 .welcome-user {
 }
 
 .navbar-nav li a:hover {
-  background-color: var(--colorPrimary) ! important;
+  background-color: var(--colorAccent) ! important;
 }
 
 .nav-wrapper {
@@ -131,13 +135,6 @@ body {
 }
 .team-member-paragraph-right {
     position: absolute;
-}
-
-.footer-placeholder {
-    border-top: solid;
-    height: 10%;
-    background-color: rgb(150, 150, 150);
-    text-align: center;
 }
 
 /*code made for opportunities list */
