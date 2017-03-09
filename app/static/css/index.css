@@ -114,7 +114,7 @@ body {
 .title {
   font-size: 4.5vw;
   color: black;
-  border-bottom: 1px solid var(--colorPrimary);
+  border-bottom: 3px solid var(--colorPrimary);
   margin: 12% 0 8% 0;
 }
 
@@ -129,12 +129,15 @@ body {
 }
 .team-member-section {
     position: relative;
-    padding-top: 5px;
-    border-top: 3px solid var(--primaryBorderColor);
-    margin-bottom: 5px;
+    padding-top: 20px;
+    border-top: 1px solid var(--primaryBorderColor);
+    margin-bottom: 20px;
 }
 .team-member-paragraph-right {
     position: absolute;
+}
+#first-teammate {
+    border-top: hidden;
 }
 
 /*code made for opportunities list */
