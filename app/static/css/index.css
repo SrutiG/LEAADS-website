@@ -240,6 +240,12 @@ body {
 
 .btn-home {
 	background-color: var(--colorPrimary);
+	text-align: center;
+}
+
+.img-home {
+	width: 10%;
+	height: 10%;
 }
 
 /* blog */
