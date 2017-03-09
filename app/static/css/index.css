@@ -93,6 +93,11 @@ body {
 	background-color: var(--colorPrimaryDark);
 }
 
+.logo-img {
+	height: 10%;
+	width: 10%;
+}
+
 
 
 /* code made for about-us and opportunities pages */
@@ -252,9 +257,9 @@ body {
 	text-align: center;
 }
 
-.img-home {
-	width: 10%;
-	height: 10%;
+.img-home { /*not working */
+	width: 90%;
+	height: 90%;
 }
 
 .mainImg {
