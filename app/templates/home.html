@@ -1,8 +1,6 @@
 {% extends 'layout.html' %}
 {%block content %}
 
-<!-- Rachel's Code -->
-
 <div class="mainImg">
     <img class="image-home img-responsive" src="{{url_for('static', filename='images/homepage-photo.png')}}">
     <div class="main-header-background container">
@@ -15,13 +13,14 @@
 <div class="container jumbotron main">
     <div class="col-md-8 col-md-offset-2">
     <h3 class="text-center">L.E.A.A.D.S. is an organization that can nicely be described in one or two sentences right here.</h3>
-        <div class="col-sm-6">
-            <div class="row"> <img src="{{url_for('static', filename='images/programs-home.png')}}"> </div>
-            <div class="row"> <a href="programs" role="button" class="btn">PROGRAMS</a> </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="row"> <img src="{{url_for('static', filename='images/opportunities-home.png')}}"> </div>
-            <div class="row"> <button type="button" class="btn btn-home">OPPORTUNITIES</button></div>
+    <div class="col-sm-6">
+        <div class="row"> <img src="{{url_for('static', filename='images/programs-home.jpg')}}" style="width: 20%; height: 20%;"> </div>
+        <div class="row"> <a href="programs" role="button" class="btn btn-home">PROGRAMS</a> </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="row"> <img src="{{url_for('static', filename='images/opportunities-home.jpg')}}" class="img-home"> </div>
+        <div class="row"> <a href="opportunites_list" role="button" class="btn btn-home">OPPORTUNITES</a> </div>
+        <!-- <div class="row"> <button type="button" class="btn btn-home">OPPORTUNITIES</button> </div> -->
         </div>
     </div>
 </div>
@@ -64,7 +63,22 @@
             <span class="icon-next" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
-
+</div>
+    
+<!-- Rachel's Code -->
+    
+<div class="container-fluid jumbotron main">
+    
+<div class="col-md-8 col-md-offset-2">
+<h3 class="text-center">L.E.A.A.D.S. is an organization that can nicely be described in one or two sentences right here.</h3>
+    <div class="col-sm-6">
+        <div class="row"> <img src="{{url_for('static', filename='images/programs-home.jpg')}}" style="width: 20%; height: 20%;"> </div>
+        <div class="row"> <a href="programs" role="button" class="btn btn-home">PROGRAMS</a> </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="row"> <img src="{{url_for('static', filename='images/opportunities-home.jpg')}}" class="img-home"> </div>
+        <div class="row"> <a href="opportunites_list" role="button" class="btn btn-home">OPPORTUNITES</a> </div>
+        <!-- <div class="row"> <button type="button" class="btn btn-home">OPPORTUNITIES</button> </div> -->
     </div>
 </div>
 
