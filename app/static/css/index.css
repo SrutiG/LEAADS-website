@@ -97,9 +97,9 @@ body {
 	background-color: var(--colorPrimaryDark);
 }
 
-.logo-img {
-	height: 10%;
-	width: 10%;
+img.logo {
+	height: 20%;
+	width: 20%;
 }
 
 

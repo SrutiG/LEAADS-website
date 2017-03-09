@@ -98,14 +98,16 @@ Contact Us: (555) 555-5555 | email@domain.com | 123 Street City, ST 12345
 Find us on social media! <i>(This will be right aligned and contain clickable logos below.)</i>
 </p>
 </div> -->
-<footer class="footer footer-custom2">
+    
+<!-- footer style will be moved to css -->
+<footer class="footer footer-custom2" style="background-color: blue;">
     <div class="container-fluid col-md-8 col-md-offset-2">
         <div class="row">
             <p class="text-center">Contact Us: (555) 555-5555 | email@domain.com | 123 Street City, ST 12345</p>
         </div>
         <div class="row">
             <p class="text-center">Find us on social media!</p>
-            <p class="text-center">
+            <p class="text-center" style="margin-top: 10px;">
                 <a href="google.com"> <img src="{{url_for('static', filename='images/google-plus-logo-button.png')}}"> </a>
                 <img src="{{url_for('static', filename='images/facebook-logo-button.png')}}"
                      a href="google.com">
@@ -116,7 +118,9 @@ Find us on social media! <i>(This will be right aligned and contain clickable lo
             </p>
         </div>
         <div class="row">
-            <img class="img-responsive logo-img" src="{{url_for('static', filename='images/leaads-logo.png')}}">
+            <img class="img-responsive logo" src="{{url_for('static', filename='images/leaads-logo.png')}}"
+                 style="height: 10%; width: 10%; display: block; margin-left: auto; margin-right: auto;
+                        margin-top: 10px; margin-bottom: 10px">
             <p class="text-center">Copyright info if necessary.</p>
         </div>
     </div>
