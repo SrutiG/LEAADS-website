@@ -275,7 +275,7 @@ img.logo {
 }
 
 .main-title {
-    font-size: 3em;
+    font-size: 2.5em;
 }
 
 .sub-main-title {
@@ -288,20 +288,20 @@ img.logo {
     color: var(--colorPrimaryLight);
     z-index: 1;
     margin-bottom: 2%;
-    top: 35%;
-    left: 10%;
-    height: 40%;
-    width: 60%;
+    top: 40%;
+    left: 7.5%;
+    height: 45%;
+    width: 42%;
 }
 
 .main-header-background {
     position: absolute;
     background-color: var(--overlay);
     opacity: 0.5;
-    top: 35%;
+    top: 40%;
     left: 5%;
-    height: 40%;
-    width: 65%;
+    height: 45%;
+    width: 45%;
     text-align: center;
     z-index: 0;
 }
