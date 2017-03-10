@@ -1,4 +1,4 @@
-@charset “UTF-8″; 
+@charset “UTF-8″;
 
 :root {
     --colorPrimary: #4da4f2;
@@ -7,8 +7,8 @@
     --colorAccent: #EEE;
     --PrimaryHover: #EEE;
     --text: #434343;
-    --textLight: #666666;
-    --overlay: #AAA;
+    --textLight: #666;
+    --overlay: var(--colorPrimaryDark);
     --primaryBorderColor: var(--colorPrimary);
     --header: var(--colorPrimary);
     --background: var(--colorPrimaryLight);
@@ -245,7 +245,7 @@ img.logo {
     top: 100%;
     left: 50%;
     transform: translate(-50%, -100%);
-    color: var(--colorPrimaryDark);
+    color: var(--colorPrimaryLight);
     z-index: 2;
 }
 
@@ -275,33 +275,32 @@ img.logo {
 }
 
 .main-title {
-    font-size: 4.5vw;
-    color: var(--colorPrimaryDark);
+    font-size: 3em;
 }
 
 .sub-main-title {
-
+    font-size: 1.7em;
+    margin-bottom: 4%;
 }
 
 .main-content {
     position: absolute;
-    color: var(--colorPrimaryDark);
+    color: var(--colorPrimaryLight);
     z-index: 1;
     margin-bottom: 2%;
-    top: 25%;
-    left: 15%;
-    height: 50%;
-    width: 70%;
-    text-align: center;
+    top: 40%;
+    left: 10%;
+    height: 40%;
+    width: 60%;
 }
 
 .main-header-background {
     position: absolute;
     background-color: var(--overlay);
     opacity: 0.5;
-    top: 25%;
-    left: 15%;
-    height: 50%;
+    top: 40%;
+    left: 5%;
+    height: 40%;
     width: 70%;
     text-align: center;
     z-index: 0;
