@@ -1,15 +1,15 @@
 :root {
-    --colorPrimary: #a1c5e0;
-    --primaryBorderColor: #a1c5e0;
-    --PrimaryHover: #FFF;
+    --colorPrimary: #4da4f2;
     --colorPrimaryLight: #FFF;
     --colorPrimaryDark: #000000;
     --colorAccent: #EEE;
+    --PrimaryHover: #EEE;
     --text: #434343;
     --textLight: #666666;
-    --header: var(--colorPrimaryDark);
+    --primaryBorderColor: var(--colorPrimary);
+    --header: var(--colorPrimary);
     --background: var(--colorPrimaryLight);
-    --nav: var(--colorAccent);
+    --nav: var(--colorPrimaryLight);
 }
 
 body {
@@ -23,9 +23,10 @@ body {
     height: 8vh;
     min-height: 40px;
     width: 100vw;
-    color: var(--colorAccent);
+    color: var(--colorPrimaryLight);
     position: static;
     font-size: 100%;
+    font-family: Impact, Helvetica;
 }
 
 #main-title {
@@ -38,6 +39,7 @@ body {
     display: inline-block;
     float: right;
     margin-top: 1.3%;
+    font-family: Helvetica;
 }
 
 .navbar .nav {
@@ -59,19 +61,21 @@ body {
   height: 46px;
   line-height: 46px;
   padding-top: 0;
-  color: var(--primaryAccent) ! important;
   margin: 0px;
+  margin-bottom: 10px;
 }
 
 .navbar-nav .active a {
-    background-color: var(--PrimaryHover) ! important;
+    background-color: var(--colorPrimaryLight) ! important;
+    color: var(--colorPrimary) ! important;
+    border-bottom: 1px solid var(--colorPrimary);
 }
 
 .welcome-user {
 }
 
 .navbar-nav li a:hover {
-  background-color: var(--colorPrimary) ! important;
+  background-color: var(--colorAccent) ! important;
 }
 
 .nav-wrapper {
@@ -93,6 +97,11 @@ body {
 	background-color: var(--colorPrimaryDark);
 }
 
+img.logo {
+	height: 20%;
+	width: 20%;
+}
+
 
 
 /* code made for about-us and opportunities pages */
@@ -110,7 +119,7 @@ body {
 .title {
   font-size: 4.5vw;
   color: black;
-  border-bottom: 1px solid var(--colorPrimary);
+  border-bottom: 3px solid var(--colorPrimary);
   margin: 12% 0 8% 0;
 }
 
@@ -125,19 +134,15 @@ body {
 }
 .team-member-section {
     position: relative;
-    padding-top: 5px;
-    border-top: 3px solid var(--primaryBorderColor);
-    margin-bottom: 5px;
+    padding-top: 20px;
+    border-top: 1px solid var(--primaryBorderColor);
+    margin-bottom: 20px;
 }
 .team-member-paragraph-right {
     position: absolute;
 }
-
-.footer-placeholder {
-    border-top: solid;
-    height: 10%;
-    background-color: rgb(150, 150, 150);
-    text-align: center;
+#first-teammate {
+    border-top: hidden;
 }
 
 /*code made for opportunities list */
@@ -249,6 +254,12 @@ body {
 
 .btn-home {
 	background-color: var(--colorPrimary);
+	text-align: center;
+}
+
+.img-home { /*not working */
+	width: 90%;
+	height: 90%;
 }
 
 .mainImg {
@@ -372,4 +383,86 @@ body {
 
 .age-range {
     color: var(--textLight);
+}
+
+/* Profile */
+.align-center, .center {
+    text-align: center!important;
+}
+
+.profile-user-info {
+    display: table;
+    width: 98%;
+    width: calc(100% - 24px);
+    margin: 0 auto
+}
+
+.profile-info-row {
+    display: table-row
+}
+
+.profile-info-name,
+.profile-info-value {
+    display: table-cell;
+    border-top: 1px dotted #D5E4F1
+}
+
+.profile-info-name {
+    text-align: right;
+    padding: 6px 10px 6px 4px;
+    font-weight: 400;
+    color: #667E99;
+    background-color: transparent;
+    width: 110px;
+    vertical-align: middle
+}
+
+.profile-info-value {
+    padding: 6px 4px 6px 6px
+}
+
+.profile-info-value>span+span:before {
+    display: inline;
+    content: ",";
+    margin-left: 1px;
+    margin-right: 3px;
+    color: #666;
+    border-bottom: 1px solid #FFF
+}
+
+.profile-info-value>span+span.editable-container:before {
+    display: none
+}
+
+.profile-info-row:first-child .profile-info-name,
+.profile-info-row:first-child .profile-info-value {
+    border-top: none
+}
+
+.profile-user-info-striped {
+    border: 1px solid #DCEBF7
+}
+
+.profile-user-info-striped .profile-info-name {
+    color: #336199;
+    background-color: #EDF3F4;
+    border-top: 1px solid #F7FBFF
+}
+
+.profile-user-info-striped .profile-info-value {
+    border-top: 1px dotted #DCEBF7;
+    padding-left: 12px
+}
+
+.profile-picture {
+    border: 1px solid #CCC;
+    background-color: #FFF;
+    margin-top: 5%;
+    padding: 4px;
+    display: inline-block;
+    max-width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .15)
 }

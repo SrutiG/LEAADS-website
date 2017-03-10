@@ -1,19 +1,99 @@
 {% extends 'layout.html' %}
 {%block content %}
-<h1>Profile Information</h1>
 
-<article role="profile">
-    <aside class="avatar">
-        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTz-_3M-pHdWyfIr__MPZOSsKPq1hBAUhdwl4MMkSKmtcEJRk0g" alt="Avatar Korra" />
-    </aside>
+<div class="tab-content no-border padding-24">
+                <div id="home" class="tab-pane in active">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-3 center">
+                            <span class="profile-picture">
+                                <img class="editable img-responsive" alt=" Avatar" id="avatar2" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTz-_3M-pHdWyfIr__MPZOSsKPq1hBAUhdwl4MMkSKmtcEJRk0g">
+                            </span>
 
-    <h2>Name</h2>
-    <h2>Points Earned: </h2>
-    <h2>Upcoming Activities</h2>
-    <ul>
-        <li>Activity 1</li>
-        <li>Activity 2</li>
-        <li>Activity 3</li>
-    </ul>
-</article>
+                        </div><!-- /.col -->
+
+                        <div class="col-xs-12 col-sm-9">
+                            <h4 class="blue">
+                                <span class="middle">John Doe</span>
+
+                                <span class="label label-purple arrowed-in-right">
+                                    <i class="ace-icon fa fa-circle smaller-80 align-middle"></i>
+                                    online
+                                </span>
+                            </h4>
+
+                            <div class="profile-user-info">
+                                <div class="profile-info-row">
+                                    <div class="profile-info-name"> Gender </div>
+
+                                    <div class="profile-info-value">
+                                        <span>Male</span>
+                                    </div>
+                                </div>
+
+                                <div class="profile-info-row">
+                                    <div class="profile-info-name"> Location </div>
+
+                                    <div class="profile-info-value">
+                                        <i class="fa fa-map-marker light-orange bigger-110"></i>
+                                        <span>Atlanta</span>
+                                        <span>Georgia</span>
+                                    </div>
+                                </div>
+
+                                <div class="profile-info-row">
+                                    <div class="profile-info-name"> Age Bracket </div>
+
+                                    <div class="profile-info-value">
+                                        <span>18-24</span>
+                                    </div>
+                                </div>
+
+                                <div class="profile-info-row">
+                                    <div class="profile-info-name"> Email </div>
+
+                                    <div class="profile-info-value">
+                                        <span>johndoe@gmail.com</span>
+                                    </div>
+                                </div>
+
+                                <div class="profile-info-row">
+                                    <div class="profile-info-name"> Phone Number </div>
+
+                                    <div class="profile-info-value">
+                                        <span>404-666-6666</span>
+                                    </div>
+                                </div>
+                                <div class="profile-info-row">
+                                    <div class="profile-info-name"> Address </div>
+
+                                    <div class="profile-info-value">
+                                        <span>2000 Morris Rd, Atlanta, GA 30332</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="hr hr-8 dotted"></div>
+
+ 
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                        <h4>Upcoming Activities</h4>
+                        <ul>
+                            <li>Activity 1</li>
+                            <li>Activity 2</li>
+                            <li>Activity 3</li>
+                        </ul>
+                        <h4>About Me</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint
+                        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                        anim id est laborum.
+                        </p>
+
+                    </div>
+</div>
+
 {% endblock %}
