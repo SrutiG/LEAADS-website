@@ -28,13 +28,7 @@ $(document).ready(function() {
         $opp_link.removeClass('active');
     }
 
-    if (window.location.pathname == '/about_us') {
-        $about_link.addClass('active');
-    } else {
-        $about_link.removeClass('active');
-    }
-
-    if (window.location.pathname == '/blog') {
+    if (window.location.pathname == '/blog' || window.location.pathname == '/about_us') {
         $about_link.addClass('active');
     } else {
         $about_link.removeClass('active');

@@ -1,5 +1,6 @@
-from app import app
+from app import app, mysql
 from flask import render_template, request, url_for, redirect, flash, session
+
 
 @app.route('/')
 def index():
@@ -35,7 +36,11 @@ def opportunities_list():
 
 @app.route('/blog')
 def blog():
-    return render_template('blog.html')
+    conn = mysql.connection
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM NEWS;")
+    blogPosts = cursor.fetchall()
+    return render_template('blog.html', blogPosts=blogPosts)
 
 @app.route('/programs')
 def programs():
