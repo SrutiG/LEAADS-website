@@ -1,3 +1,5 @@
+@charset “UTF-8″; 
+
 :root {
     --colorPrimary: #4da4f2;
     --colorPrimaryLight: #FFF;
@@ -6,6 +8,7 @@
     --PrimaryHover: #EEE;
     --text: #434343;
     --textLight: #666666;
+    --overlay: #AAA;
     --primaryBorderColor: var(--colorPrimary);
     --header: var(--colorPrimary);
     --background: var(--colorPrimaryLight);
@@ -49,7 +52,7 @@ body {
 
 .nav {
     background-color: var(--nav);
-    z-index: 1;
+    z-index: 10;
 }
 
 .navbar-right {
@@ -231,7 +234,7 @@ img.logo {
     transform: translate(-50%, -100%);
     height: 20%;
     width: 80%;
-    background-color: var(--colorPrimary);
+    background-color: var(--overlay);
     opacity: 0.7;
     z-index: 1;
     
@@ -277,13 +280,25 @@ img.logo {
 }
 
 .sub-main-title {
+
+}
+
+.main-content {
+    position: absolute;
     color: var(--colorPrimaryDark);
+    z-index: 1;
     margin-bottom: 2%;
+    top: 25%;
+    left: 15%;
+    height: 50%;
+    width: 70%;
+    text-align: center;
 }
 
 .main-header-background {
     position: absolute;
-    background-color: rgba(152, 157, 183, .7);
+    background-color: var(--overlay);
+    opacity: 0.5;
     top: 25%;
     left: 15%;
     height: 50%;
@@ -293,7 +308,8 @@ img.logo {
 }
 
 .learn-more-main {
-    background-color: var(--colorPrimary);
+    background-color: var(--colorPrimaryLight);
+    color: var(--colorPrimary);
 }
 
 /* blog */

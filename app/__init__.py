@@ -3,8 +3,6 @@ from flask import Flask
 app = Flask(__name__)
 from flask_mysqldb import MySQL
 
-
-
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'LEAADS'
