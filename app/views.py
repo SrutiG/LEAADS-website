@@ -32,7 +32,11 @@ def about_us():
 
 @app.route('/opportunities_list')
 def opportunities_list():
-    return render_template('opportunities_list.html')
+    conn = mysql.connection
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM OPPORTUNITY")
+    opportunities = cursor.fetchall()
+    return render_template('opportunities_list.html', opportunities = opportunities)
 
 @app.route('/blog')
 def blog():

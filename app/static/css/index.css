@@ -307,9 +307,8 @@ img.logo {
 .mainImg>.image-home {
     width: 100%;
     height: auto;
+    position: relative;
 }
-
-
 
 .main-title {
     font-size: 2.5em;
@@ -358,7 +357,7 @@ img.logo {
         color: var(--colorPrimaryLight);
         z-index: 1;
         margin-bottom: 2%;
-        top: 25%;
+        top: 20%;
         left: 7.5%;
         height: 30%;
         width: 50%;
@@ -368,7 +367,7 @@ img.logo {
         position: absolute;
         background-color: var(--overlay);
         opacity: 0.5;
-        top: 25%;
+        top: 20%;
         left: 5%;
         height: 30%;
         width: 55%;
@@ -376,10 +375,6 @@ img.logo {
         z-index: 0;
     }
 }
-
-
-
-
 
 .learn-more-main {
     background-color: var(--colorPrimaryLight);
