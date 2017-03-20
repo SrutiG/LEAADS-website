@@ -9,7 +9,15 @@ def index():
 
 @app.route('/profile')
 def profile():
-    return render_template('profile.html')
+    #user = session.get('user')
+    user = "jhalpert"
+    conn = mysql.connection
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM USER WHERE USERNAME = '" + user + "';") # * b/c all info
+    userInfo = cursor.fetchall()
+    cursor.execute("SELECT * FROM USER_OPP WHERE USERNAME = '" + user + "';")
+    opps = cursor.fetchall()
+    return render_template('profile.html', userInfo = userInfo, opps=opps)
 
 @app.route('/profileform')
 def profileform():
@@ -24,6 +32,9 @@ def opportunitydetail():
 def home():
     login = session.get('login')
     user = "Example User"
+    conn = mysql.connection
+    cursor.execute("SELECT * FROM PHOTO;")
+    photos = cursor.fetchall()
     return render_template('home.html', login=login, user=user)
 
 @app.route('/about_us')
@@ -32,7 +43,11 @@ def about_us():
 
 @app.route('/opportunities_list')
 def opportunities_list():
-    return render_template('opportunities_list.html')
+    conn = mysql.connection
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM OPPORTUNITY")
+    opportunities = cursor.fetchall()
+    return render_template('opportunities_list.html', opportunities = opportunities)
 
 @app.route('/blog')
 def blog():
