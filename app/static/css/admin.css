@@ -45,14 +45,16 @@ body {
 /* header and navigation */
 
 .admin-header {
-    background-color: var(--colorPrimaryDark);
-    color: var(--colorPrimary);
-    height: 8vh;
-    min-height: 40px;
+    background-color: var(--colorPrimaryLight);
+    color: var(--text);
+    height: 7vh;
+    width: 100vw;
+    min-height: 35px;
+    border-bottom: 1px solid var(--colorPrimaryDark);
 }
 .navigation {
     width: 20vw;
-    height: 92vh;
+    height: 93vh;
     border-right: 1px solid var(--colorPrimaryDark);
     float: left;
     margin-top: 0px;
@@ -64,15 +66,15 @@ body {
 
 #main-title {
     display: inline-block;
-    margin-top: 1%;
+    margin-top: 0.7%;
     vertical-align: middle;
 }
 
-#user-title {
+#sub-title {
     display: inline-block;
-    margin-top: 1%;
-    margin-left: 60%;
-    vertical-align: middle;
+    float: right;
+    margin-top: 0.7%;
+
 }
 
 .list-group-item:first-child, .list-group-item:last-child {

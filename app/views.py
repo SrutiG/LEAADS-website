@@ -77,17 +77,17 @@ def admin():
             if len(data) > 0:
                 session['admin'] = username
                 session['admin_login'] = True
-                return redirect('admin_home')
+                return redirect('admin_dashboard')
         return render_template('admin-login.html')
     else:
-        return redirect('admin_home')
+        return redirect('admin_dashboard')
 
-@app.route('/admin_home')
-def admin_home():
+@app.route('/admin_dashboard')
+def admin_dashboard():
     if not session.get('admin_login'):
         return redirect('admin')
     user = session.get('admin')
-    return render_template('admin-home.html', user = user)
+    return render_template('admin-dashboard.html', user = user)
 
 @app.route('/admin_logout')
 def admin_logout():
