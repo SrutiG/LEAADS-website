@@ -33,7 +33,7 @@ def opportunitydetail():
 @app.route('/home')
 def home():
     login = session.get('login')
-    user = "Example User"
+    user = "jhalpert"
     conn = mysql.connection
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM PHOTO;")
