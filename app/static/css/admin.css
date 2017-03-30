@@ -86,3 +86,9 @@ body {
     color: var(--colorPrimaryLight) ! important;
     border: 0px;
 }
+
+/* home */
+
+.home-upload-wrapper {
+    overflow: scroll;
+}

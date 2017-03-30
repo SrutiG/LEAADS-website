@@ -95,4 +95,43 @@ def admin_logout():
     session['admin_login'] = False
     return redirect('admin')
 
+@app.route('/admin_home')
+def admin_home():
+    if not session.get('admin_login'):
+        return redirect('admin')
+    conn = mysql.connection
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM PHOTO;")
+    photos = cursor.fetchall()
+    user = session.get('admin')
+    return render_template('admin-home.html', user = user, photos=photos)
+
+@app.route('/admin_blog')
+def admin_blog():
+    if not session.get('admin_login'):
+        return redirect('admin')
+    user = session.get('admin')
+    return render_template('admin-blog.html', user = user)
+
+@app.route('/admin_prog')
+def admin_prog():
+    if not session.get('admin_login'):
+        return redirect('admin')
+    user = session.get('admin')
+    return render_template('admin-prog.html', user = user)
+
+@app.route('/admin_opp')
+def admin_opp():
+    if not session.get('admin_login'):
+        return redirect('admin')
+    user = session.get('admin')
+    return render_template('admin-opp.html', user = user)
+
+@app.route('/admin_members')
+def admin_members():
+    if not session.get('admin_login'):
+        return redirect('admin')
+    user = session.get('admin')
+    return render_template('admin-members.html', user = user)
+
 
