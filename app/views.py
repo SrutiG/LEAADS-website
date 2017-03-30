@@ -131,7 +131,11 @@ def admin_opp():
 def admin_members():
     if not session.get('admin_login'):
         return redirect('admin')
+    conn = mysql.connection
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM USER;")
+    members = cursor.fetchall()
     user = session.get('admin')
-    return render_template('admin-members.html', user = user)
+    return render_template('admin-members.html', user = user, members = members)
 
 
