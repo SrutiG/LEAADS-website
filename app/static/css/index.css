@@ -29,7 +29,7 @@ body {
     color: var(--colorPrimaryLight);
     position: static;
     font-size: 100%;
-    /*font-family: Impact, Helvetica;*/
+    font-family: Impact, Helvetica;
 }
 
 #main-title {
