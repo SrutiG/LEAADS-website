@@ -7,13 +7,13 @@
     </div>
 </div>
 <div class="programs-wrapper">
-    <div class="col-md-10 col-md-offset-1 jumbotron main">
-        <div class="program">
-            <div class="col-md-6 img-wrapper">
-                <img src="{{url_for('static', filename='images/learning.png')}}" class="prog-img">
+    <div class="col-md-10 col-md-offset-1 col-sm-12 jumbotron main">
+        <div class="program col-md-12 clearfix">
+            <div class="col-md-6 col-sm img-wrapper clearfix">
+                <img src="{{url_for('static', filename='images/learning-center.png')}}" class="prog-img col-sm-12">
             </div>
-            <div class="col-md-6 info-wrapper">
-                <div class="program-info">
+            <div class="col-md-6 col-sm info-wrapper clearfix">
+                <div class="program-info col-sm-12">
                     <h2>Learning Center</h2>
                     <h4 class="age-range">Age group: Kids ages 0-18</h4>
                     <h5>Atlanta, GA</h5>
@@ -21,16 +21,16 @@
                         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
                         ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                         aliquip ex ea commodo consequat.</p>
-                    <button type="button" class="btn btn-default program-button">Sign Up</button>
+                    <button role="button" class="btn btn-default program-button" data-toggle="modal" data-target="#newSignup">Sign Up</button>
                 </div>
             </div>
         </div>
-        <div class="program">
-            <div class="col-md-6 img-wrapper">
-                <img src="{{url_for('static', filename='images/summer-camp.png')}}" class="prog-img">
+        <div class="program col-md-12 clearfix">
+            <div class="col-md-6 col-sm img-wrapper clearfix">
+                <img src="{{url_for('static', filename='images/programs-1.png')}}" class="prog-img col-sm-12">
             </div>
-            <div class="col-md-6 info-wrapper">
-                <div class="program-info">
+            <div class="col-md-6 col-sm info-wrapper clearfix">
+                <div class="program-info col-sm-12">
                     <h2>Summer Camp</h2>
                     <h4 class="age-range">Age group: Kids ages 0-18</h4>
                     <h5>Atlanta, GA</h5>
@@ -38,16 +38,16 @@
                         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
                         ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                         aliquip ex ea commodo consequat.</p>
-                    <button type="button" class="btn btn-default program-button">Sign Up</button>
+                    <button role="button" class="btn btn-default program-button" data-toggle="modal" data-target="#newSignup">Sign Up</button>
                 </div>
             </div>
         </div>
-        <div class="program">
-            <div class="col-md-6 img-wrapper">
-                <img src="{{url_for('static', filename='images/mentorship.png')}}" class="prog-img">
+        <div class="program col-md-12">
+            <div class="col-md-6 col-sm img-wrapper clearfix">
+                <img src="{{url_for('static', filename='images/mentorship.png')}}" class="prog-img col-sm-12">
             </div>
-            <div class="col-md-6 info-wrapper">
-                <div class="program-info">
+            <div class="col-md-6 col-sm info-wrapper clearfix">
+                <div class="program-info col-sm-12">
                     <h2>Foundations Youth, Leadership, and Mentoring Program</h2>
                     <h4>Age group: Kids ages 0-18</h4>
                     <h5>Atlanta, GA</h5>
@@ -55,9 +55,55 @@
                         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
                         ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                         aliquip ex ea commodo consequat.</p>
-                    <button type="button" class="btn btn-default program-button">Sign Up</button>
+                    <button role="button" class="btn btn-default program-button" data-toggle="modal" data-target="#newSignup">Sign Up</button>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="newSignup" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Sign Up
+                </h4>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+
+                {% if login %}
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="question">Name</label>
+                        <input type="text" class="form-control"
+                               id="question" name="text" placeholder="Enter Name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="answer">Other Comments</label>
+                        <input type="text" class="form-control"
+                               id="answer" name="answer" placeholder="Comments"/>
+                    </div>
+                    <div class="form-inline">
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                    </div>
+
+                </form>
+                {% else %}
+                <div class="">
+                    <h2>You must login or create an account to sign up</h2>
+                </div>
+                {% endif %}
+            </div>
+
         </div>
     </div>
 </div>

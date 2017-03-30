@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+:root {
+    --colorPrimary: #4da4f2;
+    --colorPrimaryLight: #FFF;
+    --colorPrimaryDark: #000000;
+    --colorAccent: #EEE;
+    --PrimaryHover: #EEE;
+    --text: #434343;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* login page */
+
+.login-header {
+    margin-bottom: 4%;
+}
+
+.login-info {
+    margin-top: 10%;
+}
+
+.login-form .login-input {
+    width: 50%;
+
+}
+
+.login-form .login-field {
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    border-bottom: 1px solid var(--colorPrimary);
+    border-radius: 0px;
+}
+
+.login-form .login-button {
+    color: var(--colorPrimary);
+    margin-top: 2%;
+}
+
+
+/* header and navigation */
+
+.admin-header {
+    background-color: var(--colorPrimaryLight);
+    color: var(--text);
+    height: 7vh;
+    width: 100vw;
+    min-height: 35px;
+    border-bottom: 1px solid var(--colorPrimaryDark);
+}
+.navigation {
+    width: 20vw;
+    height: 93vh;
+    border-right: 1px solid var(--colorPrimaryDark);
+    float: left;
+    margin-top: 0px;
+}
+
+.nav-wrapper {
+    height: 100%;
+}
+
+#main-title {
+    display: inline-block;
+    margin-top: 0.7%;
+    vertical-align: middle;
+}
+
+#sub-title {
+    display: inline-block;
+    float: right;
+    margin-top: 0.7%;
+
+}
+
+.list-group-item:first-child, .list-group-item:last-child {
+    border-radius: 0px ! important;
+}
+
+.active-cust {
+    background-color: var(--colorPrimary) ! important;
+    color: var(--colorPrimaryLight) ! important;
+    border: 0px;
+}

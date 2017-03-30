@@ -37,8 +37,7 @@
 <header class="top-header">
     <div class="container nav-content">
         <div class="header-content">
-            <h3 id="main-title">LEAADS</h3>
-            <h4 id="sub-title">Law Enforcement Agencies Assisting in the Development of Students</h4>
+            <h3 id="main-title">L.E.A.A.D.S.</h3>
         </div>
     </div>
 </header>
@@ -78,7 +77,13 @@
                 <ul class="nav navbar-nav navbar-right">
                     {% if login %}
                     <li class="nav-item"><h3 class="navbar-brand welcome-user">Welcome, <b>{{ user }}!</b></h3></li>
-                    <li id="account-link" class="nav-item"><a href="{{ url_for('profile') }}">My Account</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="account-link" aria-haspopup="true" aria-expanded="false">My Account<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                            <li><a href="#">Log out</a></li>
+                        </ul>
+                    </li>
                     {% else %}
                     <li id="login-link" class="nav-item"><a data-toggle="modal"
                     style="margin-top: 0px;" data-target="#newProfile">Login</a></li>
@@ -246,12 +251,15 @@ Find us on social media! <i>(This will be right aligned and contain clickable lo
                 <div class="modal-body">
 
                     <form method="POST">
-
-
+                    <div class="form-group">
+                        <label for="parent-name">Parent Name</label>
+                        <input type="text" class="form-control"
+                               id="parent-name" name="text" placeholder="Parent Name"/>
+                    </div>
                       <div class="form-group">
-                        <label for="name">Name</label>
+                        <label for="name">Child Name</label>
                           <input type="text" class="form-control"
-                          id="question" name="text" placeholder="Name"/>
+                          id="question" name="text" placeholder="Child Name"/>
                       </div>
                       <div class="form-group">
                         <label for="age">Age</label>
