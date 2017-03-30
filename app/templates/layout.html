@@ -77,7 +77,13 @@
                 <ul class="nav navbar-nav navbar-right">
                     {% if login %}
                     <li class="nav-item"><h3 class="navbar-brand welcome-user">Welcome, <b>{{ user }}!</b></h3></li>
-                    <li id="account-link" class="nav-item"><a href="{{ url_for('profile') }}">My Account</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="account-link" aria-haspopup="true" aria-expanded="false">My Account<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                            <li><a href="#">Log out</a></li>
+                        </ul>
+                    </li>
                     {% else %}
                     <li id="login-link" class="nav-item"><a data-toggle="modal"
                     style="margin-top: 0px;" data-target="#newProfile">Login</a></li>
