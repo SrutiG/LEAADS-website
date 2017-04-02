@@ -38,14 +38,12 @@ p {
 
 /* header and navigation */
 #nav {
-    height: 5vh ! important;
+    height: 100px;
 }
 
 #header-logo {
     padding-top: .5%;
     background-color: #ffffff;
-    vertical-align: middle;
-    position: absolute;
     z-index: 11;
 }
 

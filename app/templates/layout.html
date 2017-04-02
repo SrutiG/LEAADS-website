@@ -34,13 +34,11 @@
 {% endwith %}
 <body {% block class %} {%endblock %}>
 
-
 <!-- Logo -->
-<div class="row">
-    <div id="header-logo" class="col-xs-2">
-        <img class="img-responsive" src="{{url_for('static', filename='images/leaads-logo-word.png')}}">
+<div id="header-logo" style="position: fixed" class="row col-xs-3">
+    <div class="col-xs-12">
+        <img style="height: 60px; width: auto; margin-left: 25%;" src="{{url_for('static', filename='images/leaads-name-logo2.png')}}">
     </div>
-    <div class="col-xs-10" style:"background-color: #fff"></div>
 </div>
 
 <!-- The navigation bar, it is fixed to the top and homepage has a scroll
@@ -51,19 +49,17 @@
         <!-- Navbar used for smaller screens -->
         <div class="navbar-header">
             <button id="" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
             </button>
         </div>
 
         <!-- Normal navbar -->
         <div id="myNavbar" class="collapse navbar-collapse row nav-wrapper" style="padding: 0px ! important;">
 
-            <!-- Spacer for logo -->
-            <div class="col-xs-2"></div>
-
-            <div class="col-xs-7" style="height: 100%;">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-6" style="height: 100%;">
                 <ul class="nav navbar-nav navbar-left">
                     <li id="home-link" class="nav-item"><a href="{{ url_for('home') }}">Home</a></li>
                     <li class="nav-item dropdown" id="about-link">
@@ -111,7 +107,8 @@ Find us on social media! <i>(This will be right aligned and contain clickable lo
 
             <!-- Logo -->
             <div class="col-sm-4">
-                <img class="footer-logo" src="{{url_for('static', filename='images/leaads-logo.png')}}">
+                <img class="footer-logo" src="{{url_for('static', filename='images/logo-sun2.png')}}">
+                <p class="text-center">Here for a better future.</p>
             </div>
 
             <!-- Contact info and social media icons -->
@@ -194,7 +191,7 @@ Find us on social media! <i>(This will be right aligned and contain clickable lo
     }
     error: function(response) {
       window.alert(‘Error logging in!’)
-    } 
+    }
   });
 
   </script>
@@ -358,7 +355,7 @@ Find us on social media! <i>(This will be right aligned and contain clickable lo
             }
             error: function(response) {
               window.alert(‘Error logging in!’)
-            } 
+            }
           });
 
         </script>
