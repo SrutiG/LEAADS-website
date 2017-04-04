@@ -46,35 +46,37 @@
         </ol>
         <!-- Wrapper for slides -->
         <div class="carousel-inner carousel-item-parent" role="listbox">
+            {% for photo in photos %}
             <div class="item active carousel-item">
-                <img class="carousel-img" src="{{url_for('static', filename='images/leaads-classroom.png')}}" alt="children_pic">
+                <img class="carousel-img" src="../static/images/{{photo[0]}}" alt="children_pic">
                 <div class="news-item text-center">
 
                 </div>
                 <div class="news-text text-center">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>{{photo[1]}}</p>
                 </div>
             </div>
 
             <div class="item carousel-item">
-                <img class="carousel-img" src="{{url_for('static', filename='images/leaads-girls.png')}}" alt="leaads-group">
+                <img class="carousel-img" src="../static/images/{{photo[2]}}" alt="leaads-group">
                 <div class="news-item text-center">
 
                 </div>
                 <div class="news-text text-center">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>{{photo[3]}}</p>
                 </div>
             </div>
 
             <div class="item carousel-item">
-                <img class="carousel-img" src="{{url_for('static', filename='images/leaads-darth.png')}}" alt="leaads-darth">
+                <img class="carousel-img" src="../static/images/{{photo[4]}}" alt="leaads-darth">
                 <div class="news-item text-center">
 
                 </div>
                 <div class="news-text text-center">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>{{photo[5]}}</p>
                 </div>
             </div>
+            {% endfor %}
         </div>
         <!-- Left and right controls -->
         <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">

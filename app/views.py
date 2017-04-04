@@ -38,7 +38,7 @@ def home():
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM PHOTO;")
     photos = cursor.fetchall()
-    return render_template('home.html', login=login, user=user)
+    return render_template('home.html', login=login, user=user, photos=photos)
 
 @app.route('/about_us')
 def about_us():
