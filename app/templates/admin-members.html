@@ -1,0 +1,36 @@
+{% extends 'admin-layout.html' %}
+{%block content %}
+<div class="text-center" style="display: inline-block; text-align: center; width: 80%;">
+    <table class="table table-hover" style="width: 100%;">
+        <thead>
+            <tr>
+                <th>Parent Name</th>
+                <th>Child Name</th>
+                <th>Username</th>
+                <th>Age</th>
+                <th>Address</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>Court</th>
+                <th>Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in members %}
+            <tr>
+                <td>Bob</td>
+                <td>{{ member[2] }}</td>
+                <td>{{ member[0] }}</td>
+                <td>{{ member[3] }}</td>
+                <td>{{ member[5] }}</td>
+                <td>{{ member[8] }}</td>
+                <td>{{ member[6] }}</td>
+                <td>{{ member[7] }}</td>
+                <td>{{ member[9] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

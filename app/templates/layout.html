@@ -10,6 +10,7 @@
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/index.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     {% block extrastyle %} {% endblock %}
 
@@ -106,28 +107,33 @@ Find us on social media! <i>(This will be right aligned and contain clickable lo
 </div> -->
     
 <!-- footer style will be moved to css -->
-<footer class="footer footer-custom2" style="background-color: blue;">
-    <div class="container-fluid col-md-8 col-md-offset-2">
+<footer class="footer footer-custom2">
+    <div class="container-fluid">
         <div class="row">
-            <p class="text-center">Contact Us: (555) 555-5555 | email@domain.com | 123 Street City, ST 12345</p>
-        </div>
-        <div class="row">
-            <p class="text-center">Find us on social media!</p>
-            <p class="text-center" style="margin-top: 10px;">
-                <a href="google.com"> <img src="{{url_for('static', filename='images/google-plus-logo-button.png')}}"> </a>
-                <img src="{{url_for('static', filename='images/facebook-logo-button.png')}}"
-                     a href="google.com">
-                <img src="{{url_for('static', filename='images/linkedin-logo-button.png')}}"
-                     a href="google.com">
-                <img src="{{url_for('static', filename='images/instagram-logo.png')}}"
-                     a href="google.com">
-            </p>
-        </div>
-        <div class="row">
-            <img class="img-responsive logo" src="{{url_for('static', filename='images/leaads-logo.png')}}"
-                 style="height: 10%; width: 10%; display: block; margin-left: auto; margin-right: auto;
-                        margin-top: 10px; margin-bottom: 10px">
-            <p class="text-center">Copyright info if necessary.</p>
+
+            <!-- Logo -->
+            <div class="col-sm-4">
+                <img class="footer-logo" src="{{url_for('static', filename='images/logo-sun2.png')}}">
+                <p class="text-center">Here for a better future.</p>
+            </div>
+
+            <!-- Contact info and social media icons -->
+            <div class="col-sm-8 footer-contact-info">
+                <div class="col-sm-6">
+                    <p class="text-center">Contact Us:</p>
+                    <p class="text-center">(555) 555-5555 | email@domain.com | 123 Street City, ST 12345</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="text-center">Find us on social media!</p>
+                    <p class="text-center">
+                        <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+                        <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+                        <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+                        <a href="https://www.google.com/gmail/about/"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+                    </p>
+                </div>
+            </div>
+
         </div>
     </div>
 </footer>
