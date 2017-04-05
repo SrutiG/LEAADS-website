@@ -92,3 +92,30 @@ body {
 .home-upload-wrapper {
     overflow: scroll;
 }
+
+/* blog */
+
+#blog-photo {
+    margin: auto;
+}
+
+.panel-left {
+    width: 50%;
+    float: left;
+    display: inline-block;
+
+}
+
+.panel-right {
+    width: 50%;
+    float: right;
+    display: inline-block;
+}
+
+.delete-btn {
+    float: right;
+}
+
+.blog-info {
+    width: 100%;
+}

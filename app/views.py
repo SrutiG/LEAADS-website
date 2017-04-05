@@ -110,8 +110,12 @@ def admin_home():
 def admin_blog():
     if not session.get('admin_login'):
         return redirect('admin')
+    conn = mysql.connection
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM NEWS;");
+    posts = cursor.fetchall()
     user = session.get('admin')
-    return render_template('admin-blog.html', user = user)
+    return render_template('admin-blog.html', user = user, posts = posts)
 
 @app.route('/admin_prog')
 def admin_prog():

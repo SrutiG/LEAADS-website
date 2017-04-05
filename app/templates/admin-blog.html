@@ -1,7 +1,57 @@
 {% extends 'admin-layout.html' %}
 {%block content %}
-<div class="text-center">
-    <h1>Blog</h1>
-</div>
+<div class="container" style="display: inline-block; width: 80%;">
+    <div class="container col-md-6 col-md-offset-3 text-center">
+        <h3>Write a new Blog post</h3>
+        <form method = "post">
+            <label for="title">Title</label>
+            <div class="form-group row">
+                <input class="input" name="title" id="title" placeholder="Title">
+            </div>
+            <label for="blog-photo">
+                Photo (optional)
+            </label>
+            <div class="form-group row">
+                <input class="input" type="file" id="blog-photo">
+            </div>
+            <label for="content">
+                Content
+            </label>
+            <div class="form-group row">
+            <textarea class="form-control" placeholder="content..." name="content" id="content">
 
+            </textarea>
+            </div>
+            <div class="form-group row">
+                <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+            </div>
+        </form>
+
+
+    </div>
+    <div class="container col-md-10 col-md-offset-1">
+        <h3 class="text-center">Old Blog Posts</h3>
+        <div class="panel-group" id="accordion">
+            {% for post in posts %}
+            <div class="panel panel-default">
+                <div class="panel-heading container blog-info">
+                        <div class="panel-left">
+                            <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#post_{{ loop.index }}">
+                                Title: {{ post[4] }}</a>
+                            </h4>
+                            <h5>Date: {{ post[0] }}</h5>
+                        </div>
+                        <div class="panel-right">
+                            <button class="btn btn-lg btn-default delete-btn" type="button">Delete</button>
+                        </div>
+                </div>
+                <div id="post_{{ loop.index }}" class="panel-collapse collapse">
+                    <div class="panel-body">{{ post[3] }}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}
