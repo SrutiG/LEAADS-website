@@ -47,33 +47,17 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner carousel-item-parent" role="listbox">
             {% for photo in photos %}
+            {% if photo == photos[0] %}
             <div class="item active carousel-item">
-                <img class="carousel-img" src="../static/images/{{photo[0]}}" alt="children_pic">
+            {% else %}
+            <div class="item carousel-item">
+            {% endif %}
+                <img class="carousel-img" src="../static/images/{{photo[0]}}" alt="{{photo[0]}}">
                 <div class="news-item text-center">
 
                 </div>
                 <div class="news-text text-center">
                     <p>{{photo[1]}}</p>
-                </div>
-            </div>
-
-            <div class="item carousel-item">
-                <img class="carousel-img" src="../static/images/{{photo[2]}}" alt="leaads-group">
-                <div class="news-item text-center">
-
-                </div>
-                <div class="news-text text-center">
-                    <p>{{photo[3]}}</p>
-                </div>
-            </div>
-
-            <div class="item carousel-item">
-                <img class="carousel-img" src="../static/images/{{photo[4]}}" alt="leaads-darth">
-                <div class="news-item text-center">
-
-                </div>
-                <div class="news-text text-center">
-                    <p>{{photo[5]}}</p>
                 </div>
             </div>
             {% endfor %}
