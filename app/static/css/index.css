@@ -12,7 +12,7 @@
     --primaryBorderColor: var(--colorPrimary);
     --header: var(--colorPrimary);
     --background: var(--colorPrimaryLight);
-    --nav: var(--colorPrimaryLight);
+    --colorNav: var(--colorPrimaryLight);
 }
 
 body {
@@ -20,77 +20,28 @@ body {
     background-color: var(--background);
 }
 
-/* header and navigation */
-.top-header {
-    background-color: var(--header);
-    height: 6vh;
-    min-height: 35px;
-    width: 100vw;
-    color: var(--colorPrimaryLight);
-    position: static;
-    font-size: 100%;
-    font-family: Impact, Helvetica;
-}
-
-#main-title {
-    display: inline-block;
-    margin-top: 0.5%;
-    vertical-align: middle;
-}
-
-.header-content > #sub-title {
-    display: inline-block;
-    float: right;
-    margin-top: 0.8%;
-    font-family: Helvetica;
-}
-
-@media screen and (max-width: 600px) {
-    .header-content > #sub-title {
-        display: none;
-    }
-}
-
-.navbar .nav {
-    height: 5vh;
-    min-height: 46px ! important;
-}
-
-.nav {
-    background-color: var(--nav);
-    z-index: 10;
-}
-
-.navbar-right {
-    display: block;
-}
-
-.navbar-brand,
-.navbar-nav li a {
-  height: 46px;
-  line-height: 46px;
-  padding-top: 0;
-  margin: 0px;
-  margin-bottom: 10px;
-}
-
-.navbar-nav .active a {
-    background-color: var(--colorPrimaryLight) ! important;
+/* Other Styling */
+.btn-default {
     color: var(--colorPrimary) ! important;
-    border-bottom: 1px solid var(--colorPrimary);
 }
 
-.welcome-user {
+.navbar-logo {
+    padding-top: 0px;
+    margin-top:3px;
+    margin-right: 2vw;
 }
 
-.navbar-nav li a:hover {
-  background-color: var(--colorAccent) ! important;
+.navbar-nav li a {
+    line-height: 70px;
+    height: 70px;
+    padding-top: 0;
 }
 
-.nav-wrapper {
-    margin-top: 0px ! important;
-    padding: 0px ! important;
+.navbar-brand {
+    font-size:16px
 }
+
+
 
 .affix {
   top: 0px;
