@@ -13,6 +13,12 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.admin-wrapper {
+    border-left: 1px solid var(--colorPrimaryDark);
+    height: 93vh;
+    overflow: scroll;
+}
+
 /* login page */
 
 .login-header {
@@ -55,7 +61,6 @@ body {
 .navigation {
     width: 20vw;
     height: 93vh;
-    border-right: 1px solid var(--colorPrimaryDark);
     float: left;
     margin-top: 0px;
 }
@@ -88,10 +93,6 @@ body {
 }
 
 /* home */
-
-.home-upload-wrapper {
-    overflow: scroll;
-}
 
 /* blog */
 
