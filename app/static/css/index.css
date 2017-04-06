@@ -36,71 +36,27 @@ p {
     color: var(--colorPrimary) ! important;
 }
 
-/* header and navigation */
-#nav {
-    height: 100px;
+.navbar-logo {
+    padding-top: 0px;
+    margin-top:3px;
+    margin-right: 2vw;
 }
 
-#header-logo {
-    padding-top: .5%;
-    background-color: #ffffff;
-    z-index: 11;
+.navbar-nav li a {
+    line-height: 70px;
+    height: 70px;
+    padding-top: 0;
 }
 
-@media screen and (max-width: 700px) {
-    .header-logo {
+.navbar-brand {
+    font-size:16px
+}
+
+@media (max-width: 1100px) {
+    .welcome-screen {
         display: none;
     }
 }
-
-.navbar .nav {
-    height: 5vh;
-    min-height: 46px ! important;
-}
-
-.nav {
-    background-color: var(--colorNav);
-    z-index: 10;
-}
-
-.navbar-right {
-    display: block;
-}
-
-.navbar-brand,
-.navbar-nav li a {
-  height: 46px;
-  line-height: 46px;
-  padding-top: 5%;
-  margin: 0px;
-  margin-bottom: 10px;
-}
-
-.navbar-nav .active a {
-    background-color: var(--colorPrimaryLight) ! important;
-    color: var(--colorPrimary) ! important;
-    border-bottom: 1px solid var(--colorPrimary);
-}
-
-
-.welcome-user {
-}
-
-.navbar-nav li a:hover {
-  background-color: var(--colorAccent) ! important;
-}
-
-.nav-wrapper {
-    margin-top: 0px ! important;
-    padding: 0px ! important;
-}
-
-.affix {
-  top: 0px;
-  width: 100%;
-
-}
-
 
 /* footer */
 
