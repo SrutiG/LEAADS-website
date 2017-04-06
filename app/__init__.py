@@ -1,6 +1,6 @@
 from flask import Flask
 
-UPLOAD_FOLDER = '/static/images'
+UPLOAD_FOLDER = 'app/static/images/'
 ALLOWED_EXTENSIONS = set(['pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)

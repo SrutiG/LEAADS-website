@@ -1,5 +1,7 @@
 from app import app, mysql
 from flask import render_template, request, url_for, redirect, flash, session
+from werkzeug.utils import secure_filename
+import os
 
 
 @app.route('/')
@@ -95,12 +97,22 @@ def admin_logout():
     session['admin_login'] = False
     return redirect('admin')
 
-@app.route('/admin_home')
+@app.route('/admin_home', methods=['GET', 'POST'])
 def admin_home():
     if not session.get('admin_login'):
         return redirect('admin')
     conn = mysql.connection
     cursor = conn.cursor()
+    if request.method == 'POST':
+        photo = request.files['photo']
+        caption = request.form['caption']
+        filename = secure_filename(photo.filename)
+        photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        cursor.execute("INSERT INTO PHOTO VALUES(%s, %s)", (filename, caption,))
+        conn.commit()
+        print(filename)
+        return redirect('admin_home')
+
     cursor.execute("SELECT * FROM PHOTO;")
     photos = cursor.fetchall()
     user = session.get('admin')
@@ -164,5 +176,15 @@ def deletePost(postName):
     cursor.execute("DELETE FROM NEWS WHERE TITLE = '" + postName + "';")
     conn.commit()
     return redirect('admin_blog')
+
+@app.route('/deletePhoto/<photoName>/', methods = ['GET', 'POST'])
+def deletePhoto(photoName):
+    if not session.get('admin_login'):
+        return redirect('admin')
+    conn = mysql.connection
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM PHOTO WHERE PHOTO = '" + photoName + "';")
+    conn.commit()
+    return redirect('admin_home')
 
 
