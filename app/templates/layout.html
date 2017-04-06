@@ -174,22 +174,23 @@ Find us on social media! <i>(This will be right aligned and contain clickable lo
             </div>
         </div>
     </div>
+  
   <script>
   function login() {
-    var username = $(“#username”).val();
-    var password = $("#password”).val();
+    var username = $("#username").val();
+    var password = $("#password").val();
     $.ajax({
-    url: ‘./login/‘
-    type: ‘POST’
-    data = {‘username’: username, ‘password’:password}
-    success: function(response) {
-      window.location.href = ‘./home/‘
-    }
-    error: function(response) {
-      window.alert(‘Error logging in!’)
-    }
-  });
-
+      url: './login'
+      type: 'POST'
+      data = {'username': username, 'password':password}
+      success: function(response) {
+        window.location.href = './home'
+      }
+      error: function(response) {
+        window.alert('Error logging in!')
+      }
+    });
+  }
   </script>
 
 
@@ -334,18 +335,18 @@ Find us on social media! <i>(This will be right aligned and contain clickable lo
             var username = $('#username').val();
             var password = $('#password').val();
             var confirmpassword = $('#confirmpassword').val();
-            var email = $("#email").val();
-            var name = $("#name”).val();
-            var age = $("#age”).val();
-            var gender = $("#gender”).val();
-            var number = $("#phonenumber”).val();
-            var descript = $("#explanation”).val();
-            var court = $("#court”).val();
-            var address = $("#address”).val();
+            var email = $('#email').val();
+            var name = $('#name').val();
+            var age = $('#age').val();
+            var gender = $('#gender').val();
+            var number = $('#phonenumber').val();
+            var descript = $('#explanation').val();
+            var court = $('#court').val();
+            var address = $('#address').val();
             $.ajax({
-            url: ‘./signup/‘
-            type: ‘POST’
-            data = {‘username’: username, ‘password’:password, 'confirmpassword' :confirmpassword, 'name': name, 'age': age, 'descript' = descript, 'address': address 'email':email, 'court': court, 'gender':gender, 'number':number}
+            url: './signup/'
+            type: 'POST'
+            data = {'username': username, 'password':password, 'confirmpassword' :confirmpassword, 'name': name, 'age': age, 'descript' = descript, 'address': address 'email':email, 'court': court, 'gender':gender, 'number':number}
             success: function(response) {
               window.location.href = ‘./profile/‘
             }

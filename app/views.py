@@ -30,57 +30,54 @@ def profileform():
 def opportunitydetail():
     return render_template('opportunitydetail.html')
 
-@app.route(‘/login/, methods = [‘GET’, ‘POST’])
+@app.route('/login', methods = ['GET', 'POST'])
 def login():
-    if request.method == ‘POST’
+    if (request.method == 'POST'):
         data = request.get_json()
-        username = json_dict[‘username’]
-        password = json_dict[‘password’]
+        username = json_dict['username']
+        password = json_dict['password']
         conn = mysql.connection 
         cursor = conn.cursor() 
-        cursor.execute(“SELECT * FROM USER WHERE USERNAME = %s AND PASSWORD =%s”,(username, password)) 
+        cursor.execute("SELECT * FROM USER WHERE USERNAME = %s AND PASSWORD =%s",(username, password)) 
 
 
         loginstr = cursor.fetchall()
         if len(loginstr) > 0: 
-            session[‘login’] = True 
-            session[‘user’] = username 
-            return json.dumps({‘success':True}), 200
+            session['login'] = True 
+            session['user'] = username 
+            return json.dumps({'success':True}), 200
 
-        return json.dumps({‘error’: True}), 400
+        return json.dumps({'error': True}), 400
 
 
-@app.route(‘/signup/, methods = [‘GET’, ‘POST’])
+@app.route('/signup', methods = ['GET', 'POST'])
 def signup():
-    if request.method == ‘POST’
+    if (request.method == 'POST'):
         data = request.get_json()
-        username = json_dict[‘username’]
-        password = json_dict[‘password’]
+        username = json_dict['username']
+        password = json_dict['password']
+        name = json_dict['name']
+        age = json_dict['age']
         confirmpassword = json_dict['confirmpassword']
         email = json_dict['email']
-        name = json_dict[‘name’]
-        age = json_dict[‘age’]
         gender = json_dict['gender']
         address = json_dict['address']
-        number = json_dict[‘number’]
-        descript = json_dict[‘descript’]
+        number = json_dict['number']
+        descript = json_dict['descript']
         court = json_dict['court']
 
         conn = mysql.connection 
         cursor = conn.cursor() 
-        cursor.execute(“SELECT * FROM USER WHERE USERNAME = %s, PASSWORD =%s, 
-            NAME = %s, AGE = %i, DESCRIPT = %s, ADDRESS = %s, EMAIL =%s, COURT = %i,
-            GENDER = %s, NUMBER = %i”,(username, password, name, age, descript, address,
-                email, gender, number)) 
+        cursor.execute("SELECT * FROM USER WHERE USERNAME = %s, PASSWORD =%s,NAME = %s, AGE = %s, DESCRIPT = %s, ADDRESS = %s, EMAIL =%s, COURT = %s,GENDER = %s, NUMBER = %s",(username, password, name, age, descript, address,email, court, gender, number)) 
 
 
         signupstr = cursor.fetchall()
-        if len(signupstr) > 0 && password == confirmpass: 
-            session[‘login’] = True 
-            session[‘user’] = username 
-            return json.dumps({‘success':True}), 200
+        if password == confirmpass: 
+            session['login'] = True 
+            session['user'] = username 
+            return json.dumps({'success':True}), 200
 
-        return json.dumps({‘error’: True}), 400
+        return json.dumps({'error': True}), 400
 
 @app.route('/home')
 def home():
