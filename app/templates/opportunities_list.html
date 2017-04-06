@@ -30,9 +30,26 @@
         <select class="selectpicker form-control">
           <option>All</option>
           <option>Volunteer</option>
-          <option>Mentoring</option>
-          <option>After-School Programs</option>
+          <option>Job</option>
+          <option>Event</option>
         </select>
+        <button type="button" onclick="filter()">Search</button>
+        <script>
+          function filter() {
+            var category = $( 'select#selectpicker').val();
+              $.ajax({
+                url: "/opportunities_list/" + category + "/",
+                type: 'GET',
+                data: {'category' : category},
+                success: function(response) {
+                    window.location.href = '/admin_home';
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+          }
+        </script>
       </div>
     </div>
     

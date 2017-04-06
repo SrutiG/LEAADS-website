@@ -54,6 +54,14 @@ def opportunities_list():
     opportunities = cursor.fetchall()
     return render_template('opportunities_list.html', opportunities = opportunities)
 
+@app.route('/opportunities_list/<category>', methods = ["GET"])
+def opportunities_list2(category):
+    conn = mysql.connection
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM OPPORTUNITY WHERE CATEGORY = '" + category + "';")
+    opportunities = cursor.fetchall()
+    return render_template('opportunities_list.html', opportunities = opportunities)
+
 @app.route('/blog')
 def blog():
     conn = mysql.connection
