@@ -17,7 +17,7 @@
         </thead>
         <tbody>
             {% for member in members %}
-            <tr>
+            <tr class="member" onclick="deleteMember('{{ member[0] }}')">
                 <td>Bob</td>
                 <td>{{ member[2] }}</td>
                 <td>{{ member[0] }}</td>
@@ -32,5 +32,22 @@
         </tbody>
     </table>
 </div>
+<script>
+    function deleteMember(member) {
+        if (window.confirm("Delete this member?")) {
+            $.ajax({
+                url: "/deleteMember/" + member + "/",
+                type: 'POST',
+                data: {'member' : member},
+                success: function(response) {
+                    window.location.href = '/admin_members';
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        }
+    };
+</script>
 
 {% endblock %}

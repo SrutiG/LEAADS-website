@@ -187,4 +187,14 @@ def deletePhoto(photoName):
     conn.commit()
     return redirect('admin_home')
 
+@app.route('/deleteMember/<member>/', methods = ['GET', 'POST'])
+def deleteMember(member):
+    if not session.get('admin_login'):
+        return redirect('admin')
+    conn = mysql.connection
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM USER WHERE USERNAME = '" + member + "';")
+    conn.commit()
+    return redirect('admin_members')
+
 
