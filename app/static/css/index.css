@@ -357,6 +357,16 @@ body {
 	text-align: center;
 }
 
+.home-img {
+    margin-bottom: 1%;
+    padding-top: 1%;
+}
+
+.home-header {
+    border-bottom: 1px solid var(--colorPrimary) ! important;
+    padding-bottom: 1%;
+}
+
 .img-home { /*not working */
 	width: 90%;
 	height: 90%;
@@ -385,7 +395,7 @@ body {
     position: absolute;
     background-color: var(--overlay);
     opacity: 0.5;
-    top: 40%;
+    top: 35%;
     left: 5%;
     height: 45%;
     width: 45%;
@@ -398,7 +408,7 @@ body {
     color: var(--colorPrimaryLight);
     z-index: 1;
     margin-bottom: 2%;
-    top: 40%;
+    top: 35%;
     left: 7.5%;
     height: 45%;
     width: 42%;
@@ -441,6 +451,26 @@ body {
 .learn-more-main {
     background-color: var(--colorPrimaryLight);
     color: var(--colorPrimary);
+}
+
+.event-wrapper {
+    margin-top: 2%;
+
+}
+
+.events {
+    margin-top: 2%;
+}
+
+.event-header {
+    margin-bottom: 2%;
+}
+
+.view-more {
+    height: 31.5vh;
+    padding: 3%;
+    margin-bottom: 5%;
+    background-color: var(--colorAccent);
 }
 
 /* blog */

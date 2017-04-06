@@ -16,23 +16,52 @@
 
 <div class="container jumbotron main">
     <div class="col-md-8 col-md-offset-2">
-        <h2 class="text-center">Get involved!</h2>
-    <div class="row">
-        <div class="col-md-6 col-md-offset-0 col-sm-4 col-sm-offset-1 col-xs-4 col-xs-offset-1 col-centered text-center"> <img src="{{url_for('static', filename='images/prog-opps.PNG')}}"
-                                    style="width: 90%; height: 90%; margin-top: 10px;">
-        <h7 class="col-md-12">Sign your child up for one of our after school programs or summer camps. Your child will learn valuable skills and have a great time!</h7></div>
-        <div class="col-md-6 col-md-offset-0 col-sm-4 col-sm-offset-1 col-xs-4 col-xs-offset-1 col-centered text-center"> <img src="{{url_for('static', filename='images/leaads-kids.png')}}"
-                                    style="width: 90%; height: 90%; margin-top: 10px;">
-            <h7 class="col-md-12">Take part in one of our many volunteer opportunities, join us at one of our events, or look for job opportunities!</h7></div>
+        <div class="col-md-12">
+            <h2 class="text-center">Get involved!</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-0 col-sm-4 col-sm-offset-1 col-xs-4 col-xs-offset-1 col-centered text-center"> <img class="home-img" src="{{url_for('static', filename='images/prog-opps.PNG')}}"
+                                        style="width: 90%; height: 90%; margin-top: 10px;">
+            <h4 class="col-md-12">Sign your child up for one of our after school programs or summer camps. Your child will learn valuable skills and have a great time!</h4></div>
+            <div class="col-md-6 col-md-offset-0 col-sm-4 col-sm-offset-1 col-xs-4 col-xs-offset-1 col-centered text-center"> <img class="home-img" src="{{url_for('static', filename='images/leaads-kids.png')}}"
+                                        style="width: 90%; height: 90%; margin-top: 10px;">
+                <h4 class="col-md-12">Take part in one of our many volunteer opportunities, join us at one of our events, or look for job opportunities!</h4></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-0 col-sm-4 col-sm-offset-1 col-xs-4 col-xs-offset-1 col-centered text-center butt-wrapper"> <a href="{{ url_for('programs') }}" role="button" class="btn btn-default home-butt">PROGRAMS</a> </div>
+            <div class="col-md-6 col-md-offset-0 col-sm-4 col-sm-offset-1 col-xs-4 col-xs-offset-1 col-centered text-center butt-wrapper"> <div class="center"> <a href="{{ url_for('opportunities_list') }}" role="button" class="btn btn-default home-butt">OPPORTUNITES</a> </div></div>
+            <!-- <div class="row"> <button type="button" class="btn btn-home">OPPORTUNITIES</button> </div> -->
+        </div>
     </div>
-    <div class="row">
-        <div class="col-md-6 col-md-offset-0 col-sm-4 col-sm-offset-1 col-xs-4 col-xs-offset-1 col-centered text-center butt-wrapper"> <a href="{{ url_for('programs') }}" role="button" class="btn btn-default home-butt">PROGRAMS</a> </div>
-        <div class="col-md-6 col-md-offset-0 col-sm-4 col-sm-offset-1 col-xs-4 col-xs-offset-1 col-centered text-center butt-wrapper"> <div class="center"> <a href="{{ url_for('opportunities_list') }}" role="button" class="btn btn-default home-butt">OPPORTUNITES</a> </div></div>
-        <!-- <div class="row"> <button type="button" class="btn btn-home">OPPORTUNITIES</button> </div> -->
+    <div class="col-md-10 col-md-offset-1 event-wrapper">
+        <div class="col-md-12">
+            <h2 class="text-center event-header">Upcoming Events</h2>
+        </div>
+        <div class="events container">
+            <div class="col-md-4 event text-center">
+                <img src="http://i.imgur.com/kbFNf2N.png" style="width: 100%;">
+                <h3>Back to School Bash</h3>
+                <h4>April 10, 6:00 PM</h4>
+                <h5>Shiloh High School</h5>
+                <h7>Celebrate the new school year with family and friends</h7>
+            </div>
+            <div class="col-md-4 event text-center">
+                <img src="http://i.imgur.com/kbFNf2N.png" style="width: 100%;">
+                <h3>Volunteer Party</h3>
+                <h4>April 16, 6:00 PM</h4>
+                <h5>L.E.A.A.D.S. Office</h5>
+                <h7>Socialize with fellow L.E.A.A.D.S. volunteers</h7>
+            </div>
+            <div class="col-md-4 event text-center">
+                <div class="view-more">
+                    <h3>View More Events and Sign Up!</h3>
+                    <button type="button" class="btn btn-default btn-lg">Click Here</button>
+                </div>
+
+            </div>
+        </div>
     </div>
-</div>
-        
-        
 </div>
 
 <!-- /Rachel's Code-->
