@@ -106,15 +106,27 @@ def admin_home():
     user = session.get('admin')
     return render_template('admin-home.html', user = user, photos=photos)
 
-@app.route('/admin_blog')
+@app.route('/admin_blog', methods=['GET', 'POST'])
 def admin_blog():
     if not session.get('admin_login'):
         return redirect('admin')
     conn = mysql.connection
     cursor = conn.cursor()
+    user = session.get('admin')
+    if request.method == 'POST':
+        title = request.form['title']
+        content = request.form['content']
+        cursor.execute("SELECT NAME FROM ADMIN WHERE USERNAME = '" + user +  "';")
+        adminVals = cursor.fetchall()
+        admin = adminVals[0][0]
+        title.replace("'", "''")
+        cursor.execute("INSERT INTO NEWS VALUES(CURDATE(), %s, 'None', %s, %s);", (admin, content, title,))
+        conn.commit()
+        return redirect('admin_blog')
+
     cursor.execute("SELECT * FROM NEWS;");
     posts = cursor.fetchall()
-    user = session.get('admin')
+
     return render_template('admin-blog.html', user = user, posts = posts)
 
 @app.route('/admin_prog')
@@ -141,5 +153,16 @@ def admin_members():
     members = cursor.fetchall()
     user = session.get('admin')
     return render_template('admin-members.html', user = user, members = members)
+
+@app.route('/deletePost/<postName>/', methods = ['GET', 'POST'])
+def deletePost(postName):
+    if not session.get('admin_login'):
+        return redirect('admin')
+    conn = mysql.connection
+    cursor = conn.cursor()
+    postName.replace("'", "''")
+    cursor.execute("DELETE FROM NEWS WHERE TITLE = '" + postName + "';")
+    conn.commit()
+    return redirect('admin_blog')
 
 

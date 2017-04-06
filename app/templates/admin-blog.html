@@ -18,9 +18,7 @@
                 Content
             </label>
             <div class="form-group row">
-            <textarea class="form-control" placeholder="content..." name="content" id="content">
-
-            </textarea>
+            <textarea class="form-control" placeholder="content..." name="content" id="content"></textarea>
             </div>
             <div class="form-group row">
                 <button type="submit" class="btn btn-lg btn-primary">Submit</button>
@@ -43,7 +41,7 @@
                             <h5>Date: {{ post[0] }}</h5>
                         </div>
                         <div class="panel-right">
-                            <button class="btn btn-lg btn-default delete-btn" type="button">Delete</button>
+                            <button class="btn btn-lg btn-default delete-btn" type="button" onclick='deletePost("{{ post[4] }}")'>Delete</button>
                         </div>
                 </div>
                 <div id="post_{{ loop.index }}" class="panel-collapse collapse">
@@ -54,4 +52,20 @@
         </div>
     </div>
 </div>
+<script>
+    function deletePost(postName) {
+        postName = postName.replace("'", "''");
+        $.ajax({
+            url: "/deletePost/" + postName + "/",
+            type: 'POST',
+            data: {'postName' : postName},
+            success: function(response) {
+                window.location.href = '/admin_blog';
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    };
+</script>
 {% endblock %}
