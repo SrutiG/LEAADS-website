@@ -467,7 +467,7 @@ body {
 }
 
 .view-more {
-    height: 31.5vh;
+    height: 32vh;
     padding: 3%;
     margin-bottom: 5%;
     background-color: var(--colorAccent);
