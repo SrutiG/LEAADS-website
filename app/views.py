@@ -68,7 +68,7 @@ def opportunities_list_category(category):
 def blog():
     conn = mysql.connection
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM NEWS;")
+    cursor.execute("SELECT * FROM NEWS ORDER BY DATE DESC;")
     blogPosts = cursor.fetchall()
     return render_template('blog.html', blogPosts=blogPosts)
 
