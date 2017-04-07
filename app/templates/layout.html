@@ -10,6 +10,7 @@
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/index.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     {% block extrastyle %} {% endblock %}
 
@@ -33,33 +34,28 @@
 {% endwith %}
 <body {% block class %} {%endblock %}>
 
-<!-- Header, not fixed, at the top of the initial viewport -->
-<header class="top-header">
-    <div class="container nav-content">
-        <div class="header-content">
-            <h3 id="main-title">LEAADS</h3>
-            <h4 id="sub-title">Law Enforcement Agencies Assisting in the Development of Students</h4>
-        </div>
-    </div>
-</header>
-
-<!-- This is if anything is needed between the header and the navigation -->
-{% block prenav %}
-{% endblock %}
 
 <!-- The navigation bar, it is fixed to the top and homepage has a scroll
  spy that fixes it once it passes the height of the initial viewport -->
-<nav id="nav" class="nav navigation navbar-default affix-top" data-spy="affix">
+<nav id="nav" class="navbar navbar-fixed-top navbar-default" role="navigation" data-spy="affix">
     <div class="container">
+
+        <!-- Navbar used for smaller screens -->
         <div class="navbar-header">
             <button id="" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
             </button>
         </div>
-        <div id="myNavbar" class="collapse navbar-collapse row nav-wrapper" style="padding: 0px ! important;">
-            <div class="col-xs-6" style="height: 100%;">
+
+
+
+        <!-- Normal navbar -->
+        <div id="myNavbar" class="collapse navbar-collapse row nav-wrapper" style="padding: 0px ! important; style: 80px">
+            <a class="navbar-brand navbar-logo" href="{{ url_for('home') }}"><img class="img-responsive" src="{{url_for('static', filename='images/leaads-name-logo2.png')}}"></a>
+            <div>
                 <ul class="nav navbar-nav navbar-left">
                     <li id="home-link" class="nav-item"><a href="{{ url_for('home') }}">Home</a></li>
                     <li class="nav-item dropdown" id="about-link">
@@ -74,15 +70,15 @@
                     <li id="opp-link" class="nav-item"><a href="{{ url_for('opportunities_list') }}">Opportunities</a></li>
                 </ul>
             </div>
-            <div class="col-xs-6">
+            <div>
                 <ul class="nav navbar-nav navbar-right">
-                    {% if login %}
-                    <li class="nav-item"><h3 class="navbar-brand welcome-user">Welcome, <b>{{ user }}!</b></h3></li>
+                    {% if login or true %}
+                    <li style="margin-top: 10px;" class="nav-item navbar-brand welcome-user">Welcome, <b>Anthony D'Achille!</b></li>
                     <li id="account-link" class="nav-item"><a href="{{ url_for('profile') }}">My Account</a></li>
-                    {% else %}
+                    <!--{% else %}
                     <li id="login-link" class="nav-item"><a data-toggle="modal"
                     style="margin-top: 0px;" data-target="#newProfile">Login</a></li>
-                    {% endif %}
+                    {% endif %}-->
                 </ul>
             </div>
         </div>
@@ -101,28 +97,33 @@ Find us on social media! <i>(This will be right aligned and contain clickable lo
 </div> -->
     
 <!-- footer style will be moved to css -->
-<footer class="footer footer-custom2" style="background-color: blue;">
-    <div class="container-fluid col-md-8 col-md-offset-2">
+<footer class="footer footer-custom2">
+    <div class="container-fluid">
         <div class="row">
-            <p class="text-center">Contact Us: (555) 555-5555 | email@domain.com | 123 Street City, ST 12345</p>
-        </div>
-        <div class="row">
-            <p class="text-center">Find us on social media!</p>
-            <p class="text-center" style="margin-top: 10px;">
-                <a href="google.com"> <img src="{{url_for('static', filename='images/google-plus-logo-button.png')}}"> </a>
-                <img src="{{url_for('static', filename='images/facebook-logo-button.png')}}"
-                     a href="google.com">
-                <img src="{{url_for('static', filename='images/linkedin-logo-button.png')}}"
-                     a href="google.com">
-                <img src="{{url_for('static', filename='images/instagram-logo.png')}}"
-                     a href="google.com">
-            </p>
-        </div>
-        <div class="row">
-            <img class="img-responsive logo" src="{{url_for('static', filename='images/leaads-logo.png')}}"
-                 style="height: 10%; width: 10%; display: block; margin-left: auto; margin-right: auto;
-                        margin-top: 10px; margin-bottom: 10px">
-            <p class="text-center">Copyright info if necessary.</p>
+
+            <!-- Logo -->
+            <div class="col-sm-4">
+                <img class="footer-logo" src="{{url_for('static', filename='images/logo-sun2.png')}}">
+                <p class="text-center">Here for a better future.</p>
+            </div>
+
+            <!-- Contact info and social media icons -->
+            <div class="col-sm-8 footer-contact-info">
+                <div class="col-sm-6">
+                    <p class="text-center">Contact Us:</p>
+                    <p class="text-center">(555) 555-5555 | email@domain.com | 123 Street City, ST 12345</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="text-center">Find us on social media!</p>
+                    <p class="text-center">
+                        <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+                        <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+                        <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+                        <a href="https://www.google.com/gmail/about/"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+                    </p>
+                </div>
+            </div>
+
         </div>
     </div>
 </footer>
@@ -246,12 +247,15 @@ Find us on social media! <i>(This will be right aligned and contain clickable lo
                 <div class="modal-body">
 
                     <form method="POST">
-
-
+                    <div class="form-group">
+                        <label for="parent-name">Parent Name</label>
+                        <input type="text" class="form-control"
+                               id="parent-name" name="text" placeholder="Parent Name"/>
+                    </div>
                       <div class="form-group">
-                        <label for="name">Name</label>
+                        <label for="name">Child Name</label>
                           <input type="text" class="form-control"
-                          id="question" name="text" placeholder="Name"/>
+                          id="question" name="text" placeholder="Child Name"/>
                       </div>
                       <div class="form-group">
                         <label for="age">Age</label>

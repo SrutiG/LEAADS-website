@@ -1,0 +1,65 @@
+{% extends 'admin-layout.html' %}
+{%block content %}
+<div class="text-center home-upload-wrapper admin-wrapper">
+    <h2>Add photo</h2>
+    <form method="post" style="display: inline-block; height: 30vh; margin-bottom: 4%;" enctype="multipart/form-data">
+        <div class="form-group row">
+            <input type="file" id="home-photo" name="photo">
+        </div>
+        <div class="form-group row">
+            <img id="show-img" src="# " style="width:100%; height: 20vh;" alt="Once you select an image, it'll appear here!" />
+        </div>
+        <label for="caption">Caption</label>
+        <div class="form-group row">
+            <textarea name="caption" id="caption" class="form-control" style="width:100%;"></textarea>
+        </div>
+        <div class="form-group row">
+            <button type="submit" class="btn-default btn-lg btn">Upload</button>
+        </div>
+    </form>
+    <h2>Current Photos in Slider</h2>
+    <div class="photos">
+        {% for photo in photos %}
+            <div class="col-md-4">
+                <div class="carous-img-wrapper" style="width:100%; height: 28vh;">
+                    <img src="static/images/{{ photo[0] }}" style="width:100%;">
+                </div>
+                <p>Caption: {{ photo[1] }}</p>
+                <button type="button" class="btn btn-default" onclick="deletePhoto('{{ photo[0] }}')">Delete</button>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<script>
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+        $('#show-img').attr('src', e.target.result);
+    }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+    }
+
+    $("#home-photo").change(function(){
+    readURL(this);
+});
+
+function deletePhoto(photoName) {
+        $.ajax({
+            url: "/deletePhoto/" + photoName + "/",
+            type: 'POST',
+            data: {'photoName' : photoName},
+            success: function(response) {
+                window.location.href = '/admin_home';
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    };
+</script>
+
+{% endblock %}
