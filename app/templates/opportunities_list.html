@@ -27,12 +27,23 @@
         <h3 class="search-header-text">Type:</h3>
       </div>
       <div class="form-group" style="margin-top: 5%; padding: 2%;">
-        <select class="selectpicker form-control">
-          <option>All</option>
-          <option>Volunteer</option>
-          <option>Mentoring</option>
-          <option>After-School Programs</option>
+        <select class="form-control" id="selectpicker">
+          <option value = "All">All</option>
+          <option value = "Volunteer">Volunteer</option>
+          <option value = "Job">Job</option>
+          <option value = "Event">Event</option>
         </select>
+        <button type="button" onclick="filter()">Search</button>
+        <script>
+          function filter() {
+            var category = $( '#selectpicker').val();
+            if (category == "All") {
+                window.location.href = "/opportunities_list";
+            } else {
+                window.location.href = "/opportunities_list_category/" + category;
+            }
+          }
+        </script>
       </div>
     </div>
     
@@ -40,64 +51,25 @@
     
     <!-- Opportunities Section-->
     <div class="col-sm-6 opportunities-section">
-      
+      {% for opp in opportunities %}
       <!--Opportunity 1-->
       <div class="row opportunity-section">
         <div class="col-sm-8">
-          <h3>Opportunity Name</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
+          <h3>{{ opp[0] }}</h3>
+            <h5><b>Date: </b>{{ opp[1] }} | <b>Time Commitment: </b>{{ opp[2] }}</h5>
+            <h6><b>Location: </b>{{ opp[3] }}</h6>
+          <p>{{ opp[5] }}
           </p>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4 text-center">
           <img class="img-thumbnail opportunity-thumbnail" src="http://i.imgur.com/kbFNf2N.png">
+            <a class="btn btn-default add-q" role="button" data-toggle="modal"
+               style= "margin-top: 20px;" data-target="#newSignup">Sign Up</a>
         </div>
-        <a class="btn btn-default add-q" role="button" data-toggle="modal"
-          style= "margin: 20px 0px 20px 65px" data-target="#newSignup">Sign Up</a>
+
         </div>
-      <!--Opportunity 2-->
-      <div class="row opportunity-section">
-        <div class="col-sm-8">
-          <h3>Opportunity Name</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
-          </p>
-        </div>
-        <div class="col-sm-4">
-          <img class="img-thumbnail opportunity-thumbnail" src="http://i.imgur.com/kbFNf2N.png">
-        </div>
-        <a class="btn btn-default add-q" role="button" data-toggle="modal"
-          style= "margin: 20px 0px 20px 65px" data-target="#newSignup">Sign Up</a>
-      </div>
-      <!--Opportunity 3-->
-      <div class="row opportunity-section">
-        <div class="col-sm-8">
-          <h3>Opportunity Name</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
-          </p>
-        </div>
-        <div class="col-sm-4">
-          <img class="img-thumbnail opportunity-thumbnail" src="http://i.imgur.com/kbFNf2N.png">
-        </div>
-        <a class="btn btn-default add-q" role="button" data-toggle="modal"
-          style= "margin: 20px 0px 20px 65px" data-target="#newSignup">Sign Up</a>
-      </div>
+        {% endfor %}
+
       
       <ul class="pager">
         <li class="previous"><a href="#">Previous</a></li>
@@ -150,6 +122,5 @@
         </div>
     </div>
 </div>
-      </div>
 <!-- ------------------------------------------ -->
 {%endblock%}

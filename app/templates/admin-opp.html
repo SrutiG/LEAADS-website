@@ -1,0 +1,46 @@
+{% extends 'admin-layout.html' %}
+{%block content %}
+
+<div class="container admin-wrapper" style="display: inline-block; width: 80%;">
+    <div class="text-center">
+        <h1>Opportunities</h1>
+    </div>
+    <h4> Add New Opportunity </h4>
+
+    <form id="oppform">
+        Opportunity Name:<br>
+        <input type="text" name="oppname"><br>
+        Opportunity Date:<br>
+        <input type="date" name="date"><br>
+        Time Commitment (min): <br>
+        <input type="number" name="timecom"><br>
+        Location:<br>
+        <input type="text" name="oppname"><br>
+        Category:<br>
+        <input type="radio" name="category" value="Event">Event<br>
+        <input type="radio" name="category" value="Volunteer">Volunteer<br>
+        <input type="radio" name="category" value="Job">Job<br>
+        Description: <br>
+        <textarea rows="4" cols="50" name="description" form="oppform"></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+    <br> </br>
+    <h4> Existing Opportunities </h4>
+
+    <details>
+        <summary>Advocacy</summary>
+        Shreya,
+        Sruti,
+        Pearl
+    </details>
+
+    <details>
+        <summary>Bagging</summary>
+        Anthony,
+        Rachel
+    </details>
+</div>
+
+
+
+{% endblock %}
