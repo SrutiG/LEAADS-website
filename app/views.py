@@ -40,7 +40,9 @@ def home():
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM PHOTO;")
     photos = cursor.fetchall()
-    return render_template('home.html', login=login, user=user, photos=photos)
+    cursor.execute("SELECT * FROM OPPORTUNITY INNER JOIN OPP_TIME ON OPPORTUNITY.NAME = OPP_TIME.NAME WHERE CATEGORY = 'Event' ORDER BY OPP_TIME.DATE ASC;")
+    events = cursor.fetchall()
+    return render_template('home.html', login=login, user=user, photos=photos, events = events)
 
 @app.route('/about_us')
 def about_us():

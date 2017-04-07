@@ -5,6 +5,7 @@ $(document).ready(function() {
     $blog_link = $("#blog-link");
     $prog_link = $("#prog-link");
     $home_learn_more = $("#home-learn-more");
+    $view_events = $("#view_events");
 
     $('#nav').affix({
         offset: {
@@ -15,6 +16,11 @@ $(document).ready(function() {
     $home_learn_more.click(function() {
         window.location.href = '/about_us';
     });
+
+    $view_events.click(function() {
+        window.location.href = '/opportunities_list_category/Event';
+    });
+
 
     //change the navbar active link to home when on home page
     if (window.location.pathname == '/home') {
@@ -40,4 +46,6 @@ $(document).ready(function() {
     } else {
         $prog_link.removeClass('active');
     }
+
+
 })
