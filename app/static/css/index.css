@@ -18,6 +18,8 @@
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: var(--background);
+    height: 100%;
+    min-height: 100%;
 }
 
 /* Other Styling */
@@ -54,12 +56,13 @@ body {
 /* footer */
 
 .footer-custom2 {
-    position: absolute;
     margin-top: 20vh;
+    padding-top: 10px;
 	background-color: #222;
-    min-height: 150px;
+    min-height: 200px;
     min-width: 100vw;
     color: var(--colorPrimaryLight) ! important;
+    clear: both;
 }
 
 .footer-logo {
