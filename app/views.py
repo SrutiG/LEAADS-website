@@ -54,8 +54,8 @@ def opportunities_list():
     opportunities = cursor.fetchall()
     return render_template('opportunities_list.html', opportunities = opportunities)
 
-@app.route('/opportunities_list/<category>', methods = ["GET"])
-def opportunities_list2(category):
+@app.route('/opportunities_list_category/<category>', methods = ["GET"])
+def opportunities_list_category(category):
     conn = mysql.connection
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM OPPORTUNITY WHERE CATEGORY = '" + category + "';")
