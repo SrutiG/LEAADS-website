@@ -2,6 +2,7 @@ from app import app, mysql
 from flask import render_template, request, url_for, redirect, flash, session
 from werkzeug.utils import secure_filename
 import os
+import json
 
 
 @app.route('/')
@@ -107,6 +108,16 @@ def admin_logout():
     session['admin_login'] = False
     return redirect('admin')
 
+@app.route('/getImage', methods=['GET', 'POST'])
+def getImage():
+    print "here"
+    print request
+    print request.files
+    photo = request.files['croppedImage']
+    filename = secure_filename(request.form['filename'])
+    photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    return json.dumps({'success':True}), 200, {'ContentType':'application/json'}
+
 @app.route('/admin_home', methods=['GET', 'POST'])
 def admin_home():
     if not session.get('admin_login'):
@@ -117,10 +128,8 @@ def admin_home():
         photo = request.files['photo']
         caption = request.form['caption']
         filename = secure_filename(photo.filename)
-        photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         cursor.execute("INSERT INTO PHOTO VALUES(%s, %s)", (filename, caption,))
         conn.commit()
-        print(filename)
         return redirect('admin_home')
 
     cursor.execute("SELECT * FROM PHOTO;")
@@ -146,7 +155,7 @@ def admin_blog():
         conn.commit()
         return redirect('admin_blog')
 
-    cursor.execute("SELECT * FROM NEWS;");
+    cursor.execute("SELECT * FROM NEWS ORDER BY DATE DESC;");
     posts = cursor.fetchall()
 
     return render_template('admin-blog.html', user = user, posts = posts)
