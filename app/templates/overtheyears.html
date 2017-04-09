@@ -1,0 +1,93 @@
+{% extends 'layout.html' %}
+{%block content %}
+
+<div class>
+    <img class="img-responsive blog-img" src="{{url_for('static', filename='images/overthey.png')}}">
+    <div class="blog-header-background">
+        <h1 class="blog-title text-uppercase text-center"><strong>LEAADS Over the Years</strong></h1>
+    </div>
+</div>
+
+<br>
+<p>
+    Some text before the slideshow? Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+<br>
+
+
+<audio src="static/piano.mp3" autoplay>
+<p>If you are reading this, it is because your browser does not support the audio element.     </p>
+<embed src="static/music/piano.mp3" width="180" height="90" hidden="true" />
+</audio>
+
+<div class="carousel-stuff">
+    <div id="myCarousel" class="carousel slide carousel-items">
+<!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+        </ol>
+<!-- Wrappers for slides -->
+        <div class="carousel-inner carousel-item-parent" role="listbox">
+            <div class="item active carousel-item">
+                <img class="carousel-img" src="{{url_for('static', filename='images/oy1.jpg')}}" alt="oy1">
+                <div class="news-item text-center">
+
+                </div>
+                <div class="news-text text-center">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+            </div>
+            <div class="item carousel-item">
+                <img class="carousel-img" src="{{url_for('static', filename='images/oy2.jpg')}}" alt="oy2">
+                <div class="news-item text-center">
+
+                </div>
+                <div class="news-text text-center">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+            </div>
+            <div class="item carousel-item">
+                <img class="carousel-img" src="{{url_for('static', filename='images/oy3.jpg')}}" alt="oy3">
+                <div class="news-item text-center">
+
+                </div>
+                <div class="news-text text-center">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+            </div>
+            <div class="item carousel-item">
+                <img class="carousel-img" src="{{url_for('static', filename='images/oy4.jpg')}}" alt="oy4">
+                <div class="news-item text-center">
+
+                </div>
+                <div class="news-text text-center">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+            </div>
+        
+            <div class="item carousel-item">
+                <img class="carousel-img" src="{{url_for('static', filename='images/oy5.jpg')}}" alt="oy5">
+                <div class="news-item text-center">
+
+                </div>
+                <div class="news-text text-center">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+            </div>
+        </div>
+<!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="icon-prev" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="icon-next" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+</div>
+
+
+
+
+{% endblock %}
