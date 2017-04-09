@@ -11,7 +11,7 @@
 {%block content %}
 <div class="text-center home-upload-wrapper admin-wrapper">
     <h2>Add photo</h2>
-    <form method="post" style="display: inline-block; height: 30vh; margin-bottom: 4%;" enctype="multipart/form-data" id="photo-form">
+    <form method="post" style="display: inline-block; min-height: 50vh; margin-bottom: 4%;" enctype="multipart/form-data" id="photo-form">
         <div class="form-group row">
             <input type="file" id="home-photo" name="photo">
         </div>
@@ -21,19 +21,19 @@
         <div class="form-group row">
             <img id="cropped-img" name="cropped-img" src="#" alt="">
         </div>
+        <div class="form-group row">
+            <button type="button" class="btn-default btn" id="cropButton">Crop</button>
+        </div>
         <label for="caption">Caption</label>
         <div class="form-group row">
             <textarea name="caption" id="caption" class="form-control" style="width:100%;"></textarea>
-        </div>
-        <div class="form-group row">
-            <button type="button" class="btn-default btn" id="cropButton">Crop</button>
         </div>
         <div class="form-group row">
             <button type="button" class="btn-default btn-lg btn" id="uploadimg">Upload</button>
         </div>
     </form>
     <h2>Current Photos in Slider</h2>
-    <div class="photos">
+    <div class="photos" style="clear: both;">
         {% for photo in photos %}
             <div class="col-md-4">
                 <div class="carous-img-wrapper" style="width:100%; height: 28vh;">
