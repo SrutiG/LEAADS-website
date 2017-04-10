@@ -386,7 +386,7 @@ body {
     position: absolute;
     background-color: var(--overlay);
     opacity: 0.5;
-    top: 40%;
+    top: 35%;
     left: 5%;
     height: 45%;
     width: 45%;
@@ -399,7 +399,7 @@ body {
     color: var(--colorPrimaryLight);
     z-index: 1;
     margin-bottom: 2%;
-    top: 40%;
+    top: 35%;
     left: 7.5%;
     height: 45%;
     width: 42%;

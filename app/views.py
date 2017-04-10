@@ -55,19 +55,14 @@ def opportunitydetail():
 def initsignup():
     if (request.method == 'POST'):
         #data = request.get_json()
+        print request.form
         username = request.form['username'];
         password = request.form['password'];
         confirmpassword = request.form['confirmpassword'];
         email = request.form['email'];
         conn = mysql.connection;
         cursor = conn.cursor();
-        cursor.execute("INSERT INTO USER (USERNAME,PASSWORD,EMAIL) VALUES (username,password,email)");
-        initstr = cursor.fetchall();
-        if password == confirmpassword: 
-            session['login'] = True;
-            session['user'] = username;
-            return json.dumps({'success':True}), 200;
-
+        cursor.execute("INSERT INTO USER (USERNAME,PASSWORD,EMAIL) VALUES (%s,%s,%s)", (username, password, email));
         return json.dumps({'error': True}), 400;
 
 @app.route('/signup', methods = ['GET', 'POST'])
@@ -115,7 +110,7 @@ def about_us():
 def overtheyears():
     return render_template('overtheyears.html')
 
-@app.route('/opportunities_list')
+@app.route('/opportunities_list', methods=["GET", "POST"])
 def opportunities_list():
     conn = mysql.connection
     cursor = conn.cursor()
