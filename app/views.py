@@ -61,7 +61,6 @@ def initsignup():
         email = request.form['email'];
         conn = mysql.connection;
         cursor = conn.cursor();
-        print confirmpassword;
         cursor.execute("INSERT INTO USER (USERNAME,PASSWORD,EMAIL) VALUES (username,password,email)");
         initstr = cursor.fetchall();
         if password == confirmpassword: 
@@ -177,9 +176,6 @@ def admin_logout():
 
 @app.route('/getImage', methods=['GET', 'POST'])
 def getImage():
-    print "here"
-    print request
-    print request.files
     photo = request.files['croppedImage']
     filename = secure_filename(request.form['filename'])
     photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
