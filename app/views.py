@@ -59,7 +59,6 @@ def initsignup():
         email = request.form['email'];
         conn = mysql.connection;
         cursor = conn.cursor();
-        print confirmpassword;
         cursor.execute("INSERT INTO USER (USERNAME,PASSWORD,EMAIL) VALUES (username,password,email)");
         initstr = cursor.fetchall();
         if password == confirmpassword: 
