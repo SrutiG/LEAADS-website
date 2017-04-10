@@ -1,8 +1,8 @@
 {% extends 'layout.html' %}
 {%block content %}
 <!-- Main Picture -->
-<div class>
-  <img class="img-responsive" src="http://i.imgur.com/F5CLwOF.jpg">
+<div class="main-img">
+  <img class="img-responsive" src="{{url_for('static', filename='images/opportunities-list.jpg')}}">
   <div class="opportunities-header-background">
     <h1 class="opportunities-title text-uppercase text-center"><strong>Featured Opportunities</strong></h1>
   </div>
@@ -12,7 +12,7 @@
 <div class="container-fluid">
   <div class="row opportunities-body">
     <div class="col-md-1"></div>
-    
+
     <!-- Search bar-->
     <div class="col-sm-2 search-bar">
       <div class="search-header">
@@ -46,9 +46,9 @@
         </script>
       </div>
     </div>
-    
+
     <div class="col-sm-1"></div>
-    
+
     <!-- Opportunities Section-->
     <div class="col-sm-6 opportunities-section">
       {% for opp in opportunities %}
@@ -70,16 +70,16 @@
         </div>
         {% endfor %}
 
-      
+
       <ul class="pager">
         <li class="previous"><a href="#">Previous</a></li>
         <li class="next"><a href="#">Next</a></li>
       </ul>
     </div>
-    
-    <div class="col-md-1"></div>    
+
+    <div class="col-md-1"></div>
   </div>
-  
+
 </div>
       <!-- Modal -->
 <div class="modal fade" id="newSignup" tabindex="-1" role="dialog"
