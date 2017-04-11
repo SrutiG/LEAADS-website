@@ -5,18 +5,43 @@
     <div class="text-center">
         <h1>Programs</h1>
     </div>
-    <h4> Existing Programs </h4>
-    <details>
+    <details class="existing-progs">
         <summary>Learning Center</summary>
-        Shreya,
-        Sruti,
-        Pearl
+        {% if lc != () %}
+        <ul class="list-unstyled">
+            {% for member in lc %}
+            <li><h6>{{ member[0] }}</h6></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <h6>No one signed up</h6>
+        {% endif %}
     </details>
 
-    <details>
+    <details class="existing-progs">
         <summary>Summer Camp</summary>
-        Anthony,
-        Rachel
+        {% if sc != () %}
+        <ul class="list-unstyled">
+            {% for member in sc %}
+            <li><h6>{{ member[0] }}</h6></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <h6>No one signed up</h6>
+        {% endif %}
+    </details>
+
+    <details class="existing-progs">
+        <summary>Foundations Youth Leadership and Mentoring Program</summary>
+        {% if fp != () %}
+        <ul class="list-unstyled">
+            {% for member in fp %}
+            <li><h6>{{ member[0] }}</h6></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <h6>No one signed up</h6>
+        {% endif %}
     </details>
 </div>
 

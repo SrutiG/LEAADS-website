@@ -227,7 +227,15 @@ def admin_prog():
     if not session.get('admin_login'):
         return redirect('admin')
     user = session.get('admin')
-    return render_template('admin-prog.html', user = user)
+    conn = mysql.connection
+    cursor = conn.cursor()
+    cursor.execute("SELECT USERNAME FROM USER_PROG WHERE PROG_NAME = 'Learning Center';")
+    lc = cursor.fetchall()
+    cursor.execute("SELECT USERNAME FROM USER_PROG WHERE PROG_NAME = 'Summer Camp';")
+    sc = cursor.fetchall()
+    cursor.execute("SELECT USERNAME FROM USER_PROG WHERE PROG_NAME = 'Foundations Youth Leadership and Mentoring Program';")
+    fp = cursor.fetchall()
+    return render_template('admin-prog.html', user = user, lc=lc, sc=sc, fp=fp)
 
 @app.route('/admin_opp', methods=['GET', 'POST'])
 def admin_opp():
