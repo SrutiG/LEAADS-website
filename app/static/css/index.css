@@ -25,6 +25,7 @@ body {
     color: var(--colorPrimary) ! important;
 }
 
+
 .navbar-logo {
     padding-top: 0px;
     margin-top:3px;
@@ -353,6 +354,12 @@ body {
     margin-top: 1%;
 }
 
+.break {
+    border-top: 1px solid var(--colorPrimary);
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
 .btn-home {
 	background-color: var(--colorPrimary);
 	text-align: center;
@@ -365,6 +372,10 @@ body {
 
 .mainImg {
     width: 100vw;
+}
+
+.event-header {
+    margin-bottom: 2%;
 }
 
 .mainImg>img {
