@@ -216,7 +216,7 @@ Find us on social media! <i>(This will be right aligned and contain clickable lo
                     <span aria-hidden="true">&times;</span>
                     <span class="sr-only">Close</span>
                 </button>
-                <h4 class="modal-title" id="myModalLabel">
+                <h4 class="modal-title" id="">
                     Sign Up
                 </h4>
             </div>
@@ -290,7 +290,7 @@ Find us on social media! <i>(This will be right aligned and contain clickable lo
                         <input type="radio" name="court" class="court" value="0">Yes<br>
                         <input type="radio" name="court" class="court" value="1">No<br>
                     </div>
-                    <a class="button btn btn-lg btn-default" role="button" id = "signbutton" data-dismiss="modal" data-toggle="modal" style="margin-bottom: 2%;">Sign Up</a>
+                    <a class="button btn btn-lg btn-default" role="button" id = "signbutton" data-toggle="modal" style="margin-bottom: 2%;">Sign Up</a>
             </div>
             </form>
         </div>
@@ -314,19 +314,24 @@ Find us on social media! <i>(This will be right aligned and contain clickable lo
             var court = $('.court').val();
             var address = $('#address').val();
             var parentName = $('#parent-name').val();
-            $.ajax({
-              url: '/signup',
-              type: 'POST',
-              data: {'username': username, 'password': password,
-              'confirmpassword':confirmpassword, 'email':email,'name': name, 'age': age, 'descript': descript,'address': address, 'court': court, 'gender': gender,'number': number, 'parentName': parentName},
-              success: function(response) {
-                window.alert('Successfully signed up!')
-                window.location.href = '/profile'
-              },
-              error: function(response) {
-                window.alert('Error signing up!')
-              }
-            });
+            if (confirmpassword == password) {
+                $.ajax({
+                  url: '/signup',
+                  type: 'POST',
+                  data: {'username': username, 'password': password,
+                  'confirmpassword':confirmpassword, 'email':email,'name': name, 'age': age, 'descript': descript,'address': address, 'court': court, 'gender': gender,'number': number, 'parentName': parentName},
+                  success: function(response) {
+                    window.alert('Successfully signed up!')
+                    window.location.href = '/profile'
+                  },
+                  error: function(response) {
+                    window.alert('Error signing up!')
+                  }
+                });
+            } else {
+                window.alert("Passwords don't match!");
+            }
+
           });
         });
       </script>
