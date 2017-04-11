@@ -18,14 +18,13 @@
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: var(--background);
-    height: 100%;
-    min-height: 100%;
 }
 
 /* Other Styling */
 .btn-default {
     color: var(--colorPrimary) ! important;
 }
+
 
 .navbar-logo {
     padding-top: 0px;
@@ -51,6 +50,13 @@ body {
 
 }
 
+.modal-body1{
+    padding: 15px;
+    height: 50vh;
+    overflow-y: auto;
+}
+
+
 /* } random curly brace */
 
 /* footer */
@@ -58,7 +64,7 @@ body {
 .footer-custom2 {
     margin-top: 20vh;
     padding-top: 10px;
-	background-color: #222;
+    background-color: #222;
     min-height: 200px;
     min-width: 100vw;
     color: var(--colorPrimaryLight) ! important;
@@ -159,7 +165,7 @@ body {
 /*code made for opportunities list */
 .opportunities-header-background {
   position: absolute;
-  background-color: rgba(152, 157, 183, .4);
+  background-color: rgba(152, 157, 183, .6);
   top: 25%;
   left: 15%;
   height: 20%;
@@ -355,19 +361,15 @@ body {
     margin-top: 1%;
 }
 
+.break {
+    border-top: 1px solid var(--colorPrimary);
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
 .btn-home {
 	background-color: var(--colorPrimary);
 	text-align: center;
-}
-
-.home-img {
-    margin-bottom: 1%;
-    padding-top: 1%;
-}
-
-.home-header {
-    border-bottom: 1px solid var(--colorPrimary) ! important;
-    padding-bottom: 1%;
 }
 
 .img-home { /*not working */
@@ -379,7 +381,11 @@ body {
     width: 100vw;
 }
 
-.mainImg>.image-home {
+.event-header {
+    margin-bottom: 2%;
+}
+
+.mainImg>img {
     width: 100%;
     height: auto;
     position: relative;
@@ -456,26 +462,6 @@ body {
     color: var(--colorPrimary);
 }
 
-.event-wrapper {
-    margin-top: 2%;
-
-}
-
-.events {
-    margin-top: 2%;
-}
-
-.event-header {
-    margin-bottom: 2%;
-}
-
-.view-more {
-    height: 32vh;
-    padding: 3%;
-    margin-bottom: 5%;
-    background-color: var(--colorAccent);
-}
-
 /* blog */
 
 .blog-post {
@@ -499,7 +485,7 @@ body {
 
 .blog-header-background {
     position: absolute;
-    background-color: rgba(152, 157, 183, .4);
+    background-color: rgba(152, 157, 183, .6);
     top: 25%;
     left: 15%;
     height: 20%;
@@ -523,7 +509,7 @@ body {
 
 .prog-header-background {
     position: absolute;
-    background-color: rgba(152, 157, 183, .4);
+    background-color: rgba(152, 157, 183, .6);
     top: 25%;
     left: 15%;
     height: 20%;
