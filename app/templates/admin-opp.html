@@ -29,7 +29,7 @@
     {% for value in opp_members %}
     <details class="existing-opps">
 
-        <summary><h5>{{ value }}</h5></summary>
+        <summary><h5>{{ value }} <a href="#" onclick="deleteOpp('{{ value }}')">x</a></h5></summary>
         {% if opp_members[value] != () %}
         <ul class="list-unstyled">
             {% for member in opp_members[value] %}
@@ -43,6 +43,21 @@
     </details>
     {% endfor %}
 </div>
+<script>
+    function deleteOpp(oppName) {
+        $.ajax({
+            url: "/deleteOpp/" + oppName + "/",
+            type: 'POST',
+            data: {'oppName' : oppName},
+            success: function(response) {
+                window.location.href = '/admin_opp';
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    };
+</script>
 
 
 {% endblock %}

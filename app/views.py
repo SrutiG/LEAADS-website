@@ -298,3 +298,13 @@ def deleteMember(member):
     cursor.execute("DELETE FROM USER WHERE USERNAME = '" + member + "';")
     conn.commit()
     return redirect('admin_members')
+
+@app.route('/deleteOpp/<oppName>/', methods = ['GET', 'POST'])
+def deleteOpp(oppName):
+    if not session.get('admin_login'):
+        return redirect('admin')
+    conn = mysql.connection
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM OPPORTUNITY WHERE NAME = '" + oppName + "';")
+    conn.commit()
+    return redirect('admin_opp')
