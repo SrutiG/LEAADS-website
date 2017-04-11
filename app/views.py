@@ -236,6 +236,12 @@ def admin_opp():
     conn = mysql.connection
     cursor = conn.cursor()
     user = session.get('admin')
+    cursor.execute("SELECT NAME FROM OPPORTUNITY;")
+    opps = cursor.fetchall()
+    opp_members = {}
+    for item in opps:
+        cursor.execute("SELECT * FROM USER_OPP WHERE OPP_NAME = '" + item[0] + "'")
+        opp_members[item[0]] = cursor.fetchall()
 
     if request.method == 'POST':
         oppname = request.form['oppname']
@@ -249,7 +255,7 @@ def admin_opp():
         conn.commit()
         return redirect('admin_opp')
 
-    return render_template('admin-opp.html')
+    return render_template('admin-opp.html', opp_members = opp_members)
 
 @app.route('/admin_members')
 def admin_members():
