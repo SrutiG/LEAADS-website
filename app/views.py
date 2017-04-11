@@ -8,15 +8,13 @@ import time
 
 @app.route('/')
 def index():
-    session['login'] = True
     return redirect('home')
 
 
 
 @app.route('/profile')
 def profile():
-    #user = session.get('user')
-    user = "jhalpert"
+    user = session.get('user')
     session['login'] = True
     login = session['login']
     conn = mysql.connection
@@ -30,71 +28,64 @@ def profile():
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
     if (request.method == 'POST'):
-        # data = request.get_json()
-        username = request.form['username'];
-        password = request.form['password'];
-        conn = mysql.connection;
-        cursor = conn.cursor();
-        cursor.execute("SELECT * FROM USER WHERE USERNAME = %s AND PASSWORD =%s",(username, password));
-        loginstr = cursor.fetchall();
+        username = request.form['username']
+        password = request.form['password']
+        conn = mysql.connection
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM USER WHERE USERNAME = %s AND PASSWORD =%s",(username, password))
+        loginstr = cursor.fetchall()
         if len(loginstr) > 0: 
-            session['login'] = True;
-            session['user'] = username; 
-            return json.dumps({'success':True}), 200;
-        return json.dumps({'error': True}), 400;
+            session['login'] = True
+            session['user'] = username
+            return json.dumps({'success':True}), 200
+        return json.dumps({'error': True}), 400
 
 @app.route('/profileform')
 def profileform():
     return render_template('profileform.html')
 
+@app.route('/logout')
+def logout():
+    session['login'] = False
+    session['user'] = None
+    return redirect('home')
 
 @app.route('/opportunitydetail')
 def opportunitydetail():
     return render_template('opportunitydetail.html')
 
-@app.route('/initsignup', methods = ['GET', 'POST'])
-def initsignup():
-    if (request.method == 'POST'):
-        #data = request.get_json()
-        print request.form
-        username = request.form['username'];
-        password = request.form['password'];
-        confirmpassword = request.form['confirmpassword'];
-        email = request.form['email'];
-        conn = mysql.connection;
-        cursor = conn.cursor();
-        cursor.execute("INSERT INTO USER (USERNAME,PASSWORD,EMAIL) VALUES (%s,%s,%s)", (username, password, email));
-        return json.dumps({'error': True}), 400;
-
 @app.route('/signup', methods = ['GET', 'POST'])
 def signup():
     if (request.method == 'POST'):
-        #data = request.get_json()
-        user = session.get('user');
-        name = request.form['name'];
-        age = request.form['age'];
-        gender = request.form['gender'];
-        address = request.form['address'];
-        descript = request.form['descript'];
-        court = request.form['court'];
-        number = request.form['number'];
-
-        conn = mysql.connection;
-        cursor = conn.cursor();
-        cursor.execute("UPDATE USER SET NAME = name, AGE = age, DESCRIPT = descript, ADDRESS = address, COURT = court ,GENDER = gender, NUMBER = number WHERE USERNAME = user");
-        signupstr = cursor.fetchall();
-        if len(signupstr) > 0: 
-            session['login'] = True;
-            session['user'] = username;
-            return json.dumps({'success':True}), 200;
-
-        return json.dumps({'error': True}), 400;
+        username = request.form['username']
+        password = request.form['password']
+        confirmpassword = request.form['confirmpassword']
+        email = request.form['email']
+        name = request.form['name']
+        age = request.form['age']
+        gender = request.form['gender']
+        address = request.form['address']
+        descript = request.form['descript']
+        courtStr = request.form['court']
+        parentName = request.form['parentName']
+        if courtStr == "0":
+            court = 0
+        else:
+            court = 1
+        number = request.form['number']
+        conn = mysql.connection
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO USER (USERNAME,PASSWORD,EMAIL,NAME, AGE, DESCRIPT, ADDRESS, COURT,GENDER,NUMBER, PARENTNAME) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (username, password, email, name, age, descript, address, court, gender, number, parentName))
+        conn.commit()
+        session['login'] = True
+        session['user'] = username
+        return json.dumps({'success':True}), 200
 
 
 @app.route('/home')
 def home():
     login = session.get('login')
-    user = "jhalpert"
+    user = session.get('user')
     conn = mysql.connection
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM PHOTO;")
@@ -105,39 +96,51 @@ def home():
 
 @app.route('/about_us')
 def about_us():
-    return render_template('about_us.html')
+    login = session.get('login')
+    user = session.get('user')
+    return render_template('about_us.html', login=login, user=user)
 
 @app.route('/overtheyears')
 def overtheyears():
-    return render_template('overtheyears.html')
+    login = session.get('login')
+    user = session.get('user')
+    return render_template('overtheyears.html', login=login, user=user)
 
 @app.route('/opportunities_list', methods=["GET", "POST"])
 def opportunities_list():
+    login = session.get('login')
+    user = session.get('user')
     conn = mysql.connection
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM OPPORTUNITY")
     opportunities = cursor.fetchall()
-    return render_template('opportunities_list.html', opportunities = opportunities)
+    return render_template('opportunities_list.html', opportunities = opportunities, login=login, user=user)
 
 @app.route('/opportunities_list_category/<category>', methods = ["GET"])
 def opportunities_list_category(category):
+    login = session.get('login')
+    user = session.get('user')
     conn = mysql.connection
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM OPPORTUNITY WHERE CATEGORY = '" + category + "';")
     opportunities = cursor.fetchall()
-    return render_template('opportunities_list.html', opportunities = opportunities)
+    return render_template('opportunities_list.html', opportunities = opportunities, login=login, user=user)
 
 @app.route('/blog')
 def blog():
+    login = session.get('login')
+    user = session.get('user')
     conn = mysql.connection
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM NEWS ORDER BY DATE DESC;")
     blogPosts = cursor.fetchall()
-    return render_template('blog.html', blogPosts=blogPosts)
+    return render_template('blog.html', blogPosts=blogPosts, login=login, user=user)
 
 @app.route('/programs')
 def programs():
-    return render_template('programs.html')
+    login = session.get('login')
+    user = session.get('user')
+    return render_template('programs.html', login=login, user=user)
 
 @app.route('/admin', methods = ['GET', 'POST'])
 def admin():

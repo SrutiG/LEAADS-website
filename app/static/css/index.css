@@ -50,6 +50,13 @@ body {
 
 }
 
+.modal-body1{
+    padding: 15px;
+    height: 50vh;
+    overflow-y: auto;
+}
+
+
 /* } random curly brace */
 
 /* footer */
@@ -158,7 +165,7 @@ body {
 /*code made for opportunities list */
 .opportunities-header-background {
   position: absolute;
-  background-color: rgba(152, 157, 183, .4);
+  background-color: rgba(152, 157, 183, .6);
   top: 25%;
   left: 15%;
   height: 20%;
@@ -478,7 +485,7 @@ body {
 
 .blog-header-background {
     position: absolute;
-    background-color: rgba(152, 157, 183, .4);
+    background-color: rgba(152, 157, 183, .6);
     top: 25%;
     left: 15%;
     height: 20%;
@@ -502,7 +509,7 @@ body {
 
 .prog-header-background {
     position: absolute;
-    background-color: rgba(152, 157, 183, .4);
+    background-color: rgba(152, 157, 183, .6);
     top: 25%;
     left: 15%;
     height: 20%;
