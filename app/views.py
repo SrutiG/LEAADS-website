@@ -2,17 +2,19 @@ from app import app, mysql
 from flask import render_template, request, url_for, redirect, flash, session
 from werkzeug.utils import secure_filename
 import os
+import json
+import time 
 
 
 @app.route('/')
 def index():
-    session['login'] = True
     return redirect('home')
+
+
 
 @app.route('/profile')
 def profile():
-    #user = session.get('user')
-    user = "jhalpert"
+    user = session.get('user')
     session['login'] = True
     login = session['login']
     conn = mysql.connection
@@ -23,19 +25,67 @@ def profile():
     opps = cursor.fetchall()
     return render_template('profile.html', userInfo = userInfo, opps=opps, login=login, user=user)
 
+@app.route('/login', methods = ['GET', 'POST'])
+def login():
+    if (request.method == 'POST'):
+        username = request.form['username']
+        password = request.form['password']
+        conn = mysql.connection
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM USER WHERE USERNAME = %s AND PASSWORD =%s",(username, password))
+        loginstr = cursor.fetchall()
+        if len(loginstr) > 0: 
+            session['login'] = True
+            session['user'] = username
+            return json.dumps({'success':True}), 200
+        return json.dumps({'error': True}), 400
+
 @app.route('/profileform')
 def profileform():
     return render_template('profileform.html')
 
+@app.route('/logout')
+def logout():
+    session['login'] = False
+    session['user'] = None
+    return redirect('home')
 
 @app.route('/opportunitydetail')
 def opportunitydetail():
     return render_template('opportunitydetail.html')
 
+@app.route('/signup', methods = ['GET', 'POST'])
+def signup():
+    if (request.method == 'POST'):
+        username = request.form['username']
+        password = request.form['password']
+        confirmpassword = request.form['confirmpassword']
+        email = request.form['email']
+        name = request.form['name']
+        age = request.form['age']
+        gender = request.form['gender']
+        address = request.form['address']
+        descript = request.form['descript']
+        courtStr = request.form['court']
+        parentName = request.form['parentName']
+        if courtStr == "0":
+            court = 0
+        else:
+            court = 1
+        number = request.form['number']
+        conn = mysql.connection
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO USER (USERNAME,PASSWORD,EMAIL,NAME, AGE, DESCRIPT, ADDRESS, COURT,GENDER,NUMBER, PARENTNAME) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (username, password, email, name, age, descript, address, court, gender, number, parentName))
+        conn.commit()
+        session['login'] = True
+        session['user'] = username
+        return json.dumps({'success':True}), 200
+
+
 @app.route('/home')
 def home():
     login = session.get('login')
-    user = "jhalpert"
+    user = session.get('user')
     conn = mysql.connection
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM PHOTO;")
@@ -46,35 +96,51 @@ def home():
 
 @app.route('/about_us')
 def about_us():
-    return render_template('about_us.html')
+    login = session.get('login')
+    user = session.get('user')
+    return render_template('about_us.html', login=login, user=user)
 
-@app.route('/opportunities_list')
+@app.route('/overtheyears')
+def overtheyears():
+    login = session.get('login')
+    user = session.get('user')
+    return render_template('overtheyears.html', login=login, user=user)
+
+@app.route('/opportunities_list', methods=["GET", "POST"])
 def opportunities_list():
+    login = session.get('login')
+    user = session.get('user')
     conn = mysql.connection
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM OPPORTUNITY")
     opportunities = cursor.fetchall()
-    return render_template('opportunities_list.html', opportunities = opportunities)
+    return render_template('opportunities_list.html', opportunities = opportunities, login=login, user=user)
 
 @app.route('/opportunities_list_category/<category>', methods = ["GET"])
 def opportunities_list_category(category):
+    login = session.get('login')
+    user = session.get('user')
     conn = mysql.connection
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM OPPORTUNITY WHERE CATEGORY = '" + category + "';")
     opportunities = cursor.fetchall()
-    return render_template('opportunities_list.html', opportunities = opportunities)
+    return render_template('opportunities_list.html', opportunities = opportunities, login=login, user=user)
 
 @app.route('/blog')
 def blog():
+    login = session.get('login')
+    user = session.get('user')
     conn = mysql.connection
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM NEWS ORDER BY DATE DESC;")
     blogPosts = cursor.fetchall()
-    return render_template('blog.html', blogPosts=blogPosts)
+    return render_template('blog.html', blogPosts=blogPosts, login=login, user=user)
 
 @app.route('/programs')
 def programs():
-    return render_template('programs.html')
+    login = session.get('login')
+    user = session.get('user')
+    return render_template('programs.html', login=login, user=user)
 
 @app.route('/admin', methods = ['GET', 'POST'])
 def admin():
@@ -107,6 +173,13 @@ def admin_logout():
     session['admin_login'] = False
     return redirect('admin')
 
+@app.route('/getImage', methods=['GET', 'POST'])
+def getImage():
+    photo = request.files['croppedImage']
+    filename = secure_filename(request.form['filename'])
+    photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    return json.dumps({'success':True}), 200, {'ContentType':'application/json'}
+
 @app.route('/admin_home', methods=['GET', 'POST'])
 def admin_home():
     if not session.get('admin_login'):
@@ -117,10 +190,8 @@ def admin_home():
         photo = request.files['photo']
         caption = request.form['caption']
         filename = secure_filename(photo.filename)
-        photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         cursor.execute("INSERT INTO PHOTO VALUES(%s, %s)", (filename, caption,))
         conn.commit()
-        print(filename)
         return redirect('admin_home')
 
     cursor.execute("SELECT * FROM PHOTO;")
@@ -146,7 +217,7 @@ def admin_blog():
         conn.commit()
         return redirect('admin_blog')
 
-    cursor.execute("SELECT * FROM NEWS;");
+    cursor.execute("SELECT * FROM NEWS ORDER BY DATE DESC;");
     posts = cursor.fetchall()
 
     return render_template('admin-blog.html', user = user, posts = posts)
@@ -158,12 +229,27 @@ def admin_prog():
     user = session.get('admin')
     return render_template('admin-prog.html', user = user)
 
-@app.route('/admin_opp')
+@app.route('/admin_opp', methods=['GET', 'POST'])
 def admin_opp():
     if not session.get('admin_login'):
         return redirect('admin')
+    conn = mysql.connection
+    cursor = conn.cursor()
     user = session.get('admin')
-    return render_template('admin-opp.html', user = user)
+
+    if request.method == 'POST':
+        oppname = request.form['oppname']
+        date = request.form['date']
+        timecom = request.form['timecom']
+        location = request.form['location']
+        category = request.form['category']
+        description = request.form['description']
+
+        cursor.execute("INSERT INTO OPPORTUNITY VALUES(%s, %s, %s, %s, %s, %s, 'none');", (oppname, date, timecom, location, category, description))
+        conn.commit()
+        return redirect('admin_opp')
+
+    return render_template('admin-opp.html')
 
 @app.route('/admin_members')
 def admin_members():
@@ -206,5 +292,3 @@ def deleteMember(member):
     cursor.execute("DELETE FROM USER WHERE USERNAME = '" + member + "';")
     conn.commit()
     return redirect('admin_members')
-
-

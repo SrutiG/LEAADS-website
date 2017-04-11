@@ -10,7 +10,7 @@
 <div class="jumbotron main">
     {% for post in blogPosts %}
     <div class="blog-post container">
-        <h4 class="blog-post-date">{{ post[0].strftime('%B %-d, %Y') }}</h4>
+        <h4 class="blog-post-date">{{ post[0].strftime('%m-%d-%Y %H:%I%p') }}</h4>
         <h2 class="blog-post-title">{{ post[4] }}</h2>
         <h3 class="blog-post-author"><i>{{ post[1] }}</i></h3>
         <p>

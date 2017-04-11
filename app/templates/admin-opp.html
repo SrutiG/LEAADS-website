@@ -7,7 +7,7 @@
     </div>
     <h4> Add New Opportunity </h4>
 
-    <form id="oppform">
+    <form method = "post">
         Opportunity Name:<br>
         <input type="text" name="oppname"><br>
         Opportunity Date:<br>
@@ -15,13 +15,13 @@
         Time Commitment (min): <br>
         <input type="number" name="timecom"><br>
         Location:<br>
-        <input type="text" name="oppname"><br>
+        <input type="text" name="location"><br>
         Category:<br>
         <input type="radio" name="category" value="Event">Event<br>
         <input type="radio" name="category" value="Volunteer">Volunteer<br>
         <input type="radio" name="category" value="Job">Job<br>
         Description: <br>
-        <textarea rows="4" cols="50" name="description" form="oppform"></textarea><br>
+        <textarea rows="4" cols="50" name="description" id="description"></textarea><br>
         <input type="submit" value="Submit">
     </form>
     <br> </br>
@@ -33,14 +33,7 @@
         Sruti,
         Pearl
     </details>
-
-    <details>
-        <summary>Bagging</summary>
-        Anthony,
-        Rachel
-    </details>
 </div>
-
 
 
 {% endblock %}
