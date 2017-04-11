@@ -11,6 +11,8 @@ def index():
     session['login'] = True
     return redirect('home')
 
+
+
 @app.route('/profile')
 def profile():
     #user = session.get('user')
@@ -25,6 +27,22 @@ def profile():
     opps = cursor.fetchall()
     return render_template('profile.html', userInfo = userInfo, opps=opps, login=login, user=user)
 
+@app.route('/login', methods = ['GET', 'POST'])
+def login():
+    if (request.method == 'POST'):
+        # data = request.get_json()
+        username = request.form['username'];
+        password = request.form['password'];
+        conn = mysql.connection;
+        cursor = conn.cursor();
+        cursor.execute("SELECT * FROM USER WHERE USERNAME = %s AND PASSWORD =%s",(username, password));
+        loginstr = cursor.fetchall();
+        if len(loginstr) > 0: 
+            session['login'] = True;
+            session['user'] = username; 
+            return json.dumps({'success':True}), 200;
+        return json.dumps({'error': True}), 400;
+
 @app.route('/profileform')
 def profileform():
     return render_template('profileform.html')
@@ -33,6 +51,45 @@ def profileform():
 @app.route('/opportunitydetail')
 def opportunitydetail():
     return render_template('opportunitydetail.html')
+
+@app.route('/initsignup', methods = ['GET', 'POST'])
+def initsignup():
+    if (request.method == 'POST'):
+        #data = request.get_json()
+        print request.form
+        username = request.form['username'];
+        password = request.form['password'];
+        confirmpassword = request.form['confirmpassword'];
+        email = request.form['email'];
+        conn = mysql.connection;
+        cursor = conn.cursor();
+        cursor.execute("INSERT INTO USER (USERNAME,PASSWORD,EMAIL) VALUES (%s,%s,%s)", (username, password, email));
+        return json.dumps({'error': True}), 400;
+
+@app.route('/signup', methods = ['GET', 'POST'])
+def signup():
+    if (request.method == 'POST'):
+        #data = request.get_json()
+        user = session.get('user');
+        name = request.form['name'];
+        age = request.form['age'];
+        gender = request.form['gender'];
+        address = request.form['address'];
+        descript = request.form['descript'];
+        court = request.form['court'];
+        number = request.form['number'];
+
+        conn = mysql.connection;
+        cursor = conn.cursor();
+        cursor.execute("UPDATE USER SET NAME = name, AGE = age, DESCRIPT = descript, ADDRESS = address, COURT = court ,GENDER = gender, NUMBER = number WHERE USERNAME = user");
+        signupstr = cursor.fetchall();
+        if len(signupstr) > 0: 
+            session['login'] = True;
+            session['user'] = username;
+            return json.dumps({'success':True}), 200;
+
+        return json.dumps({'error': True}), 400;
+
 
 @app.route('/home')
 def home():
@@ -50,7 +107,11 @@ def home():
 def about_us():
     return render_template('about_us.html')
 
-@app.route('/opportunities_list')
+@app.route('/overtheyears')
+def overtheyears():
+    return render_template('overtheyears.html')
+
+@app.route('/opportunities_list', methods=["GET", "POST"])
 def opportunities_list():
     conn = mysql.connection
     cursor = conn.cursor()
@@ -111,9 +172,6 @@ def admin_logout():
 
 @app.route('/getImage', methods=['GET', 'POST'])
 def getImage():
-    print "here"
-    print request
-    print request.files
     photo = request.files['croppedImage']
     filename = secure_filename(request.form['filename'])
     photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
@@ -231,5 +289,3 @@ def deleteMember(member):
     cursor.execute("DELETE FROM USER WHERE USERNAME = '" + member + "';")
     conn.commit()
     return redirect('admin_members')
-
-
