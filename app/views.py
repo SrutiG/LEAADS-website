@@ -227,7 +227,15 @@ def admin_prog():
     if not session.get('admin_login'):
         return redirect('admin')
     user = session.get('admin')
-    return render_template('admin-prog.html', user = user)
+    conn = mysql.connection
+    cursor = conn.cursor()
+    cursor.execute("SELECT USERNAME FROM USER_PROG WHERE PROG_NAME = 'Learning Center';")
+    lc = cursor.fetchall()
+    cursor.execute("SELECT USERNAME FROM USER_PROG WHERE PROG_NAME = 'Summer Camp';")
+    sc = cursor.fetchall()
+    cursor.execute("SELECT USERNAME FROM USER_PROG WHERE PROG_NAME = 'Foundations Youth Leadership and Mentoring Program';")
+    fp = cursor.fetchall()
+    return render_template('admin-prog.html', user = user, lc=lc, sc=sc, fp=fp)
 
 @app.route('/admin_opp', methods=['GET', 'POST'])
 def admin_opp():
@@ -236,6 +244,12 @@ def admin_opp():
     conn = mysql.connection
     cursor = conn.cursor()
     user = session.get('admin')
+    cursor.execute("SELECT NAME FROM OPPORTUNITY;")
+    opps = cursor.fetchall()
+    opp_members = {}
+    for item in opps:
+        cursor.execute("SELECT * FROM USER_OPP WHERE OPP_NAME = '" + item[0] + "'")
+        opp_members[item[0]] = cursor.fetchall()
 
     if request.method == 'POST':
         oppname = request.form['oppname']
@@ -249,7 +263,7 @@ def admin_opp():
         conn.commit()
         return redirect('admin_opp')
 
-    return render_template('admin-opp.html')
+    return render_template('admin-opp.html', opp_members = opp_members)
 
 @app.route('/admin_members')
 def admin_members():
@@ -292,3 +306,13 @@ def deleteMember(member):
     cursor.execute("DELETE FROM USER WHERE USERNAME = '" + member + "';")
     conn.commit()
     return redirect('admin_members')
+
+@app.route('/deleteOpp/<oppName>/', methods = ['GET', 'POST'])
+def deleteOpp(oppName):
+    if not session.get('admin_login'):
+        return redirect('admin')
+    conn = mysql.connection
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM OPPORTUNITY WHERE NAME = '" + oppName + "';")
+    conn.commit()
+    return redirect('admin_opp')

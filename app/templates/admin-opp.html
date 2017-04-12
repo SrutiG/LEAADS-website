@@ -26,14 +26,38 @@
     </form>
     <br> </br>
     <h4> Existing Opportunities </h4>
+    {% for value in opp_members %}
+    <details class="existing-opps">
 
-    <details>
-        <summary>Advocacy</summary>
-        Shreya,
-        Sruti,
-        Pearl
+        <summary><h5>{{ value }} <a href="#" onclick="deleteOpp('{{ value }}')">x</a></h5></summary>
+        {% if opp_members[value] != () %}
+        <ul class="list-unstyled">
+            {% for member in opp_members[value] %}
+            <li><h6>{{ member[0] }}</h6></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <h6>No one signed up</h6>
+        {% endif %}
+
     </details>
+    {% endfor %}
 </div>
+<script>
+    function deleteOpp(oppName) {
+        $.ajax({
+            url: "/deleteOpp/" + oppName + "/",
+            type: 'POST',
+            data: {'oppName' : oppName},
+            success: function(response) {
+                window.location.href = '/admin_opp';
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    };
+</script>
 
 
 {% endblock %}
