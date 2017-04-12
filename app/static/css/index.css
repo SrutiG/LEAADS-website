@@ -155,6 +155,11 @@ body {
     border-top: 1px solid var(--primaryBorderColor);
     margin-bottom: 20px;
 }
+
+.team-member-description {
+    margin-top: 75px;
+}
+
 .team-member-paragraph-right {
     position: absolute;
 }
@@ -191,7 +196,7 @@ body {
 }
 
 .search-bar {
-    height: 600px;
+    height: 1905px;
     padding-right: 0px;
     padding-top: 0px;
     border-right: solid;
