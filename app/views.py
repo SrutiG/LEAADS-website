@@ -163,11 +163,14 @@ def programs():
     if request.method == 'POST':
         program = request.form['prog']
         cursor.execute("INSERT INTO USER_PROG VALUES(%s, %s);", (user, program))
-    cursor.execute("SELECT PROG_NAME FROM USER_PROG WHERE USERNAME = '" + user + "';")
-    user_prog = cursor.fetchall()
-    programs = []
-    for val in user_prog:
-        programs.append(val[0])
+    if user != None:
+        cursor.execute("SELECT PROG_NAME FROM USER_PROG WHERE USERNAME = '" + user + "';")
+        user_prog = cursor.fetchall()
+        programs = []
+        for val in user_prog:
+            programs.append(val[0])
+    else:
+        programs = []
     return render_template('programs.html', login=login, user=user, programs = programs)
 
 @app.route('/admin', methods = ['GET', 'POST'])
