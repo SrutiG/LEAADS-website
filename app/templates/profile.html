@@ -71,13 +71,53 @@
                         </div>
                     </div>
                 </div>
+                <div class="upcoming opportunities">
+                    <h4>Upcoming Opportunities</h4>
+                    <div class="panel-group" id="accordion">
+                        {% for opp in opps %}
+                        <div class="panel panel-default" class="opp-panel">
+                            <div class="panel-heading container opp-info">
+                                <div class="panel-left">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#opp_{{ loop.index }}">
+                                            Title: {{ opp[1] }}</a>
+                                    </h4>
+                                    <h5>Date: {{ opp[3] }}</h5>
+                                </div>
+                                <div class="panel-right">
+                                    <button class="btn btn-lg btn-default delete-btn" type="button" onclick='deleteSignUp("{{ opp[1] }}", "{{ user }}")'>Cancel</button>
+                                </div>
+                            </div>
+                            <div id="opp_{{ loop.index }}" class="panel-collapse collapse">
+                                <div class="panel-body">{{ opp[7] }}</div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                </div>
+                <script>
+                function deleteSignUp(opp, user) {
+                    $.ajax({
+                        url: "/deleteOppSignUp/" + opp + "/",
+                        type: 'POST',
+                        data: {'oppName' : opp, 'user': user},
+                        success: function(response) {
+                            window.location.href = '/profile';
+                        },
+                        error: function(error) {
+                            console.log(error);
+                        }
+                 });
+                };
+                </script>
 
                 <div class="hr hr-8 dotted"></div>
                 <div class="col-sm-1"></div>
+            </div>
 
             </div><!-- /.col -->
         </div>
     </div>
+
 </div>
 
 {% endblock %}

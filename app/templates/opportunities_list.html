@@ -65,7 +65,7 @@
         <div class="col-sm-4 text-center">
           <img class="img-thumbnail opportunity-thumbnail" src="http://i.imgur.com/kbFNf2N.png">
             <a class="btn btn-default add-q" role="button" data-toggle="modal"
-               style= "margin-top: 20px;" data-target="#newSignup">Sign Up</a>
+               style= "margin-top: 20px;" data-target="#newSignup" onclick="addOpp('{{ opp[0] }}')">Sign Up</a>
         </div>
 
         </div>
@@ -101,8 +101,10 @@
 
             <!-- Modal Body -->
             <div class="modal-body">
-
+                {% if login %}
                 <form method="POST">
+
+                    <input type="hidden" name="opp" id="opp">
                     <div class="form-group">
                         <label for="question">Name</label>
                         <input type="text" class="form-control"
@@ -118,10 +120,18 @@
                     </div>
 
                 </form>
+                {% else %}
+                <h2>You must login/register to sign up</h2>
+                {% endif %}
             </div>
 
         </div>
     </div>
+    <script>
+        function addOpp(opportunity) {
+            $("#opp").val(opportunity);
+        }
+    </script>
 </div>
 <!-- ------------------------------------------ -->
 {%endblock%}

@@ -702,3 +702,20 @@ body {
     box-sizing: border-box;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, .15)
 }
+
+.opp-panel {
+    width: 50%;
+}
+
+.opp-info {
+    width: 100%;
+}
+
+.panel-left {
+    display: inline-block;
+    float: left;
+}
+.panel-right {
+    display: inline-block;
+    float: right;
+}

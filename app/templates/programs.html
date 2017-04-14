@@ -22,7 +22,11 @@
                         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
                         ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                         aliquip ex ea commodo consequat.</p>
-                    <button role="button" class="btn btn-default program-button" data-toggle="modal" data-target="#newSignup">Sign Up</button>
+                    {% if 'Learning Center' in programs %}
+                    <button role="button" disabled="true" class="btn btn-default program-button" data-toggle="modal" data-target="#newSignup">Signed Up</button>
+                    {% else %}
+                    <button role="button" class="btn btn-default program-button" data-toggle="modal" data-target="#newSignup" onclick="addProg('Learning Center')">Sign Up</button>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -39,7 +43,11 @@
                         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
                         ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                         aliquip ex ea commodo consequat.</p>
-                    <button role="button" class="btn btn-default program-button" data-toggle="modal" data-target="#newSignup">Sign Up</button>
+                    {% if 'Summer Camp' in programs %}
+                    <button role="button" disabled="true" class="btn btn-default program-button" data-toggle="modal" data-target="#newSignup">Signed Up</button>
+                    {% else %}
+                    <button role="button" class="btn btn-default program-button" data-toggle="modal" data-target="#newSignup" onclick="addProg('Summer Camp')">Sign Up</button>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -56,7 +64,11 @@
                         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
                         ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                         aliquip ex ea commodo consequat.</p>
-                    <button role="button" class="btn btn-default program-button" data-toggle="modal" data-target="#newSignup">Sign Up</button>
+                    {% if 'Foundations Youth Leadership and Mentoring Program' in programs %}
+                    <button role="button" disabled="true" class="btn btn-default program-button" data-toggle="modal" data-target="#newSignup">Signed Up</button>
+                    {% else %}
+                    <button role="button" class="btn btn-default program-button" data-toggle="modal" data-target="#newSignup" onclick="addProg('Foundations Youth Leadership and Mentoring Program')">Sign Up</button>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -83,6 +95,7 @@
 
                 {% if login %}
                 <form method="POST">
+                    <input type="hidden" id="prog" name="prog">
                     <div class="form-group">
                         <label for="question">Name</label>
                         <input type="text" class="form-control"
@@ -107,5 +120,10 @@
 
         </div>
     </div>
+    <script>
+        function addProg(program) {
+            $("#prog").val(program);
+        }
+    </script>
 </div>
 {% endblock %}

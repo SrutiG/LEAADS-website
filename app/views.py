@@ -21,9 +21,19 @@ def profile():
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM USER WHERE USERNAME = '" + user + "';") # * b/c all info
     userInfo = cursor.fetchall()
-    cursor.execute("SELECT * FROM USER_OPP WHERE USERNAME = '" + user + "';")
+    cursor.execute("SELECT * FROM USER_OPP INNER JOIN OPPORTUNITY ON USER_OPP.OPP_NAME = OPPORTUNITY.NAME WHERE USERNAME = '" + user + "';")
     opps = cursor.fetchall()
     return render_template('profile.html', userInfo = userInfo, opps=opps, login=login, user=user)
+
+
+@app.route('/deleteOppSignUp/<oppName>/', methods = ['GET', 'POST'])
+def deleteOppSignUp(oppName):
+    conn = mysql.connection
+    cursor = conn.cursor()
+    user = request.form['user']
+    cursor.execute("DELETE FROM USER_OPP WHERE USERNAME = '" + user + "' AND OPP_NAME = '" + oppName + "';")
+    conn.commit()
+    return redirect('profile')
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
@@ -112,7 +122,15 @@ def opportunities_list():
     user = session.get('user')
     conn = mysql.connection
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM OPPORTUNITY")
+    if request.method == 'POST':
+        oppName = request.form['opp']
+        cursor.execute("INSERT INTO USER_OPP VALUES(%s, %s);", (user, oppName))
+        conn.commit()
+        return redirect('opportunities_list')
+    if user != None:
+        cursor.execute("SELECT * FROM OPPORTUNITY WHERE NAME NOT IN (SELECT OPP_NAME FROM USER_OPP WHERE USERNAME = '" + user + "');")
+    else:
+        cursor.execute("SELECT * FROM OPPORTUNITY;")
     opportunities = cursor.fetchall()
     return render_template('opportunities_list.html', opportunities = opportunities, login=login, user=user)
 
@@ -136,11 +154,21 @@ def blog():
     blogPosts = cursor.fetchall()
     return render_template('blog.html', blogPosts=blogPosts, login=login, user=user)
 
-@app.route('/programs')
+@app.route('/programs', methods=['GET', 'POST'])
 def programs():
     login = session.get('login')
     user = session.get('user')
-    return render_template('programs.html', login=login, user=user)
+    conn = mysql.connection
+    cursor = conn.cursor()
+    if request.method == 'POST':
+        program = request.form['prog']
+        cursor.execute("INSERT INTO USER_PROG VALUES(%s, %s);", (user, program))
+    cursor.execute("SELECT PROG_NAME FROM USER_PROG WHERE USERNAME = '" + user + "';")
+    user_prog = cursor.fetchall()
+    programs = []
+    for val in user_prog:
+        programs.append(val[0])
+    return render_template('programs.html', login=login, user=user, programs = programs)
 
 @app.route('/admin', methods = ['GET', 'POST'])
 def admin():
